@@ -1,8 +1,12 @@
-#TEAM WADE
-#Yi Cai
-#Austin Nim
-#Dohyun Kim
-#Wanhin Choi
+TEAM WADE
+
+Yi Cai
+
+Austin Nim
+
+Dohyun Kim
+
+Wanhin Choi
 
 Proposal:
 **Idea 1:**
@@ -20,13 +24,20 @@ Paper Prototype:
 
 1. Prototype #1
 - Utilizes a block type layout for the main menu. When click on each function, the back button is on the top left. We  demonstrate the search price feature in this prototype in which the user search the price of the drug and can see a list of resulting pharmacies and can sort the results based on prices or locations. It can also show the results on a map and compare their locations with the user's own location.
-
+  
+  Home - Features a UI layout similar to mobile applications, with 4 main interactions shown.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Main.PNG)
+  Drug Info - Features a search function, where users can enter a drug name to be found. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Search.PNG)
+  Drug Info Cont. - Shows user interaction.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Search2.jpg)
+  Drug Info Cont. - Reveals results and map button that displays results on a map.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResult.PNG)
+  Drug Info Cont. - Reveals sorted results and map button that displays results on a map.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultSort.PNG)
+  Drug Info Cont. - Map of locations 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultMap.PNG)
+  Drug Info Cont. - Results, where locations can be clicked.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultMapInfo.PNG)
 
 2. Prototype #2
