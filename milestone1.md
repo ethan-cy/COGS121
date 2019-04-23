@@ -29,16 +29,22 @@ We plan to create a web application to enhance medication use experience. Throug
   
   Home - Features a UI layout similar to mobile applications, with 4 main interactions shown.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Main.PNG)
+  
   Drug Info - Features a search function, where users can enter a drug name to be found. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Search.PNG)
+  
   Drug Info Cont. - Shows user interaction.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Search2.jpg)
+  
   Drug Info Cont. - Reveals results and map button that displays results on a map.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResult.PNG)
+  
   Drug Info Cont. - Reveals sorted results and map button that displays results on a map.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultSort.PNG)
+  
   Drug Info Cont. - Map of locations 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultMap.PNG)
+  
   Drug Info Cont. - Results, where locations can be clicked.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultMapInfo.PNG)
 
@@ -77,16 +83,22 @@ We plan to create a web application to enhance medication use experience. Throug
    
    Home - Features a home button and account button in the menu bar, and then other features are on the main screen as  buttons 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg)
+   
    Current Prescription - Shows the user's current prescription and heart rate displayed on a graph. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg)
+   
    Heart Rate Tracking - Shows interaction for heart rate tracking function. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170942.jpg)
+   
    Notification - Shows a notification prompting using to measure heart rate again 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170945.jpg)
+   
    Results - Shows the heart rates and current and previous buttons that show info on pills taken or currently taken. Browse new prescription redirects user to the screen below. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170948.jpg)
+   
    Pill Recommendation - Shows current pill and the recommendend pill to replace your current pill. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170951.jpg)
+   
    Account - Shows account info of user. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg)
 
@@ -94,16 +106,22 @@ We plan to create a web application to enhance medication use experience. Throug
 - Implements an alternative UI design in which we have the menu items on the buttom of the page and we click on each tab to see the detailsof the page.
   Menu - Utilizes a fixed navigation bar at the bottom of the screen. The main features are located in the navigation bar. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Main.PNG)
+  
   Fill Prescription - Form for users to utilize, and users can take a picture of their prescription. Hitting continue leads to the next step in the process. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Prescription.PNG)
+  
   Fill Prescription cont. - Displays stores and then user can place order.
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2692.jpg)
+  
   Heart Rate - Perform a heart rate tracking. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Heartrate.PNG)
+  
   Info - User types in name of drug and then info is displayed. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Info.PNG)
+  
   Search - User types in input and information is displayed below the search bar. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-SearchPrice.PNG)
+  
   Account - Account page where users can set up simple reminders or store information on medication. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Acocunt.PNG)
   
