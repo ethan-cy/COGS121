@@ -18,10 +18,19 @@ Storyboards:
 
 Paper Prototype:
 
-1.
+1. Prototype #1
+- Utilizes a block type layout for the main menu. When click on each function, the back button is on the top left. We  demonstrate the search price feature in this prototype in which the user search the price of the drug and can see a list of resulting pharmacies and can sort the results based on prices or locations. It can also show the results on a map and compare their locations with the user's own location.
 
-2. Prototype #2 
-  - Utilizes a hamburger menu, where users can access all functions. There are buttons that indicate possible interactions. 
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Main.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Search.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Search2.jpg)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResult.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultSort.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultMap.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultMapInfo.PNG)
+
+2. Prototype #2
+- Utilizes a hamburger menu, where users can access all functions. There are buttons that indicate possible interactions. We demonstrate the prescription renewal feature in this prototype. 
   
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2688.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2689.jpg)
@@ -34,6 +43,7 @@ Paper Prototype:
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2696.jpg)
    
 3. Prototype #3
+- Implements an alternative UI design.
 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg)
@@ -42,6 +52,16 @@ Paper Prototype:
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170948.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170951.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg)
-   <img src="https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg" height="500" width="800"/>
+
+4. Prototype #4
+- Implements an alternative UI design in which we have the menu items on the buttom of the page and we click on each tab to see the detailsof the page.
+
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Main.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Prescription.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Heartrate.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Info.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-SearchPrice.PNG)
+  ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Acocunt.PNG)
+  
 
 
