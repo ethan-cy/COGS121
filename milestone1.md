@@ -20,4 +20,4 @@ Paper Prototype:
   b) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg)
   c) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170942.jpg)
 
-<img src="https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170942.jpg" width="200" height="400" />
+<img src="https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170942.jpg" width="1000" height="1000" data-rotate="90" />
