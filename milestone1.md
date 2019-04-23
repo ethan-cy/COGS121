@@ -1,8 +1,8 @@
-TEAM WADE
-Yi Cai
-Austin Nim
-Dohyun Kim
-Wanhin Choi
+#TEAM WADE
+#Yi Cai
+#Austin Nim
+#Dohyun Kim
+#Wanhin Choi
 
 Proposal:
 **Idea 1:**
