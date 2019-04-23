@@ -30,20 +30,29 @@ Paper Prototype:
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/SearchResultMapInfo.PNG)
 
 2. Prototype #2
-- Utilizes a hamburger menu, where users can access all functions. There are buttons that indicate possible interactions. We demonstrate the prescription renewal feature in this prototype. 
+- Utilizes a hamburger menu, where users can access all functions. There are buttons that indicate possible interactions, such as filling a pill pescription or access to personal accounts. The UI looks similar to other mobile websites UI, and the prototype illustrates different features. 
   
+   Home - Reveals the main task that can be accomplished on the web app.
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/Screen%20Shot%202019-04-22%20at%205.55.02%20PM.png)
+   Menu Expanded - Menu expands across the screen when clicked, each label redirects the user to a separate page.
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/Screen%20Shot%202019-04-22%20at%205.55.16%20PM.png)
+   Account - Shows user account, med history, renewal button, etc. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/Screen%20Shot%202019-04-22%20at%205.57.05%20PM.png)
+   Fill Prescription - Form for users to fill out, continue button leads to next steps in prescription fulfillment process. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2691.jpg)
+   Fill Presciption 2 - Displays stores and then user can place order. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2692.jpg)
+   Heart Rate Tracker - Shows data of user's vitals, record button starts recording heart rate 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2693.jpg)
+   Heart Rate Tracker - Recording in process 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2694.jpg)
+   Price Comparison - Shows map of results that match user input 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2695.jpg)
+   Search - Displays an image and a description of medicine. 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2696.jpg)
    
 3. Prototype #3
-- Implements an alternative UI design.
+- Implements an alternative UI design, which highlights heart rate tracking as it's main feature. 
 
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg)
