@@ -32,9 +32,9 @@ Paper Prototype:
 2. Prototype #2
 - Utilizes a hamburger menu, where users can access all functions. There are buttons that indicate possible interactions. We demonstrate the prescription renewal feature in this prototype. 
   
-   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2688.jpg)
-   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2689.jpg)
-   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2690.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/Screen%20Shot%202019-04-22%20at%205.55.02%20PM.png)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/Screen%20Shot%202019-04-22%20at%205.55.16%20PM.png)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/Screen%20Shot%202019-04-22%20at%205.57.05%20PM.png)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2691.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2692.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2693.jpg)
