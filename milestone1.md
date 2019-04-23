@@ -8,7 +8,7 @@ Dohyun Kim
 
 Wanhin Choi
 
-Proposal:
+**Proposal:**
 
 
 - **Idea 1:**
