@@ -104,6 +104,7 @@ We plan to create a web application to enhance medication use experience. Throug
 
 **4. Prototype #4**
 - Implements an alternative UI design in which we have the menu items on the buttom of the page and we click on each tab to see the detailsof the page.
+
   Menu - Utilizes a fixed navigation bar at the bottom of the screen. The main features are located in the navigation bar. 
   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/AltUI-Main.PNG)
   
