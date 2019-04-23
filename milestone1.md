@@ -16,7 +16,7 @@ Storyboards:
 
 Paper Prototype:
 
-3. a) ![Image](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg = 250 x 250)
+3. a) ![Image](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg = 250 x 250 "Logo text title")
   b) ![image]https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg
   c)
 
