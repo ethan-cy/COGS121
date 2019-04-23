@@ -42,6 +42,6 @@ Paper Prototype:
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170948.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170951.jpg)
    ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg)
-   <img src="https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg"/>
+   <img src="https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg" scale="50 %"/>
 
 
