@@ -9,7 +9,7 @@ Proposal:
 
 
 Storyboards:
-![Image](https://octodex.github.com/images/yaktocat.png)
+![Image]
 
 
 Paper Prototype:
