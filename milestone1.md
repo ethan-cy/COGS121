@@ -18,8 +18,13 @@ Storyboards:
 
 Paper Prototype:
 
-3. a) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg)
+3. 
+  a) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg)
   b) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg)
   c) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170942.jpg)
+  d) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170945.jpg)
+  e) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170948.jpg)
+  f) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170951.jpg)
+  g) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg)
 
 
