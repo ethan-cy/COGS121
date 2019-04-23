@@ -18,13 +18,29 @@ Storyboards:
 
 Paper Prototype:
 
-3. 
-  a) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg)
-  b) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg)
-  c) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170942.jpg)
-  d) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170945.jpg)
-  e) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170948.jpg)
-  f) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170951.jpg)
-  g) ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg)
+1.
+
+2. Prototype #2 
+  - Utilizes a hamburger menu, where users can access all functions. There are buttons that indicate possible interactions. 
+  
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2688.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2689.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2690.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2691.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2692.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2693.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2694.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2695.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/austin/IMG_2696.jpg)
+   
+3. Prototype #3
+
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170933.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170937.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170942.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170945.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170948.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170951.jpg)
+   ![](https://github.com/ethan-cy/COGS121/blob/master/images/Dylan/20190422_170953.jpg)
 
 
