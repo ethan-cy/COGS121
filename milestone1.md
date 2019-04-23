@@ -11,9 +11,9 @@ We plan to create a web application to enhance medication use experience. Throug
 
 
 Storyboards:
-1. ![] (https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Storyboard-Prescription.jpg)
-2. ![] (https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Storyboard-SearchPrice.jpg)
-3. ![] (https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Storyboard-Heartrate.PNG)
+1. ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Storyboard-Prescription.jpg)
+2. ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Storyboard-SearchPrice.jpg)
+3. ![](https://github.com/ethan-cy/COGS121/blob/master/images/Ethan/Storyboard-Heartrate.PNG)
 
 
 Paper Prototype:
