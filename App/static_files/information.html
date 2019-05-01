@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>MedicineApp</title>
+    <link rel="stylesheet" type="text/css" href="information.css">
 
     <script src="jquery-3.4.0.min.js"></script>
 
@@ -40,13 +41,15 @@
 <body>
     <h1>Drug Information</h1>
 
-    Drug Name: <input id="drugNameBox" type="text" size="20"/>
-    <button id="getInfoButton">Get Instruction</button>
+    <font size="+20">Drug Name: </font> <input style="font-size:35px;" id="drugNameBox" type="text" class="input"/>
+    <button id="getInfoButton" class="input2">Get Instruction</button>
 
     <div id="IndicDiv"></div>
     <br>
     <div id="DoseDiv"></div>
 
+    <br>
+    <br>
     <form method="get" action="/main.html">
             <button type="submit">Back to Home</button>
     </form>
