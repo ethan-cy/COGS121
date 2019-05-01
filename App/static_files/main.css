@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background-color: #d90130;
+  font-family: 'Gugi';
 }
 #box {
   display: grid;
@@ -9,6 +10,8 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   margin: 0;
+   align-items: center;
+   justify-content: center;
 }
 hr {
   border-style: solid;
@@ -20,11 +23,12 @@ h1 {
   text-align: center;
   font-size: 175px;
   text-decoration: underline;
-  color: black;
-  text-shadow: 5px 5px white;
+  color: white;
+  text-shadow: 8px 8px black;
 }
-.redirect{
+form {
   text-align: center;
+  margin: 10px;
 }
 
 button {
@@ -34,8 +38,12 @@ button {
   padding-bottom: 10px;
   padding-top: 10px;
   margin:auto;
-    text-shadow: 1px 1px black;
-    border: 20px;
+  text-shadow: 1px 1px black;
+
+    border-radius: 15px;
+    border-width: 6px;
+    border-color: black;
+    border-style: solid;
 }
 
 img {
