@@ -30,4 +30,4 @@ Screen #1:
 
 Screen #2:
 
-![](https://github.com/ethan-cy/COGS121/blob/master/images/as.PNG)
+![](https://github.com/ethan-cy/COGS121/blob/master/images/drug_info.PNG)
