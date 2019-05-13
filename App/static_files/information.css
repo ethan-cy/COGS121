@@ -59,6 +59,16 @@ input{
     border-radius: 10px;
   }
 
+  #IndicDiv {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    font-size: 30px;
+  }
+
+  #pillPic {
+    display: none;
+  }
 footer > a  {
    float: left;
    width: 24.8%;

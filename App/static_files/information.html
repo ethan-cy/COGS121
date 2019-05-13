@@ -49,11 +49,7 @@
     <script type="text/javascript">
 
     $(document).ready(() => {
-<<<<<<< HEAD
-
-=======
         const database = firebase.database();
->>>>>>> eef2865bddbb12cb7fbc533582e828b161f63b35
 
         $('#getInfoButton').click(() => {
             const key = $('#drugNameBox').val();
@@ -67,13 +63,11 @@
                     if (key.toUpperCase() == list[i].openfda.generic_name){
                         console.log(i);
                         console.log(list[i].openfda.generic_name);
-                        $('#IndicDiv').html('Indiction: ' + list[i].indications_and_usage);
+                        $('#IndicDiv').html('Purpose: ' + list[i].indications_and_usage);
+                        $('#IndicDiv').html('Purpose: ' + list[i].indications_and_usage);
+                        $('#myDIV').style.display = "block";
                         break;
                     }
-
-<<<<<<< HEAD
-
-=======
                     else{
                         $('#IndicDiv').html('Please enter a valid name.');
                     }
@@ -81,7 +75,6 @@
             });
             return;
         });
->>>>>>> eef2865bddbb12cb7fbc533582e828b161f63b35
     });
 
     </script>
@@ -103,6 +96,7 @@
     <div id="IndicDiv"></div>
     <br>
     <div id="DoseDiv"></div>
+    <div><img id="pillPic" src="" alt="pic of pill searched"></div>
 
 
     <footer id="navbar">
