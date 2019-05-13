@@ -1,7 +1,13 @@
 body {
+<<<<<<< HEAD
   margin: 0;
   background-color: #d90130;
   font-family: 'Gugi';
+=======
+    margin: 0;
+    background-color: white;
+    font-family: 'Gugi';
+>>>>>>> 6f00e624aa4934e07c131e5cdbc60a1a542ab6cb
   }
 #box {
     display: grid;
@@ -17,12 +23,21 @@ hr {
     margin-bottom: 30px;
   }
 h1 {
+<<<<<<< HEAD
   padding-top: 100px;
   text-align: center;
   font-size: 125px;
   text-decoration: underline;
   color: white;
   text-shadow: 8px 8px black;
+=======
+    padding-top: 100px;
+    text-align: center;
+    font-size: 155px;
+    text-decoration: underline;
+    color: black;
+    /*text-shadow: 5px 5px #d90130;*/
+>>>>>>> 6f00e624aa4934e07c131e5cdbc60a1a542ab6cb
   }
 .redirect{
     text-align: center;
@@ -31,12 +46,14 @@ h1 {
 button {
     font-size: 50px;
     background-color: grey;
-    color: black;
+    color: white;
     padding-bottom: 10px;
     padding-top: 10px;
     margin:auto;
       text-shadow: 1px 1px black;
       border: 20px;
+    display: block;
+    max-width: 300px;
   }
 
 img {
