@@ -18,7 +18,7 @@ hr {
 h1 {
     padding-top: 100px;
     text-align: center;
-    font-size: 175px;
+    font-size: 155px;
     text-decoration: underline;
     color: black;
     /*text-shadow: 5px 5px #d90130;*/
@@ -26,16 +26,20 @@ h1 {
 .redirect{
     text-align: center;
   }
-  
+
+
+
 button {
     font-size: 50px;
     background-color: grey;
-    color: black;
+    color: white;
     padding-bottom: 10px;
     padding-top: 10px;
     margin:auto;
       text-shadow: 1px 1px black;
       border: 20px;
+    display: block;
+    max-width: 300px;
   }
   
 img {
@@ -45,7 +49,7 @@ img {
   }
 
   .input{
-      width: 300px;
+      width: 600px;
       height: 100px;
       margin: 0 auto;
       border: none; /* <-- This thing here */
@@ -61,6 +65,7 @@ img {
     border:solid 1px black;
     border-radius: 30px;
     font-size: 40px;
+      margin-top : 25px;
 }
   
   
