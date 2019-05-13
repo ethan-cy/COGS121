@@ -2,56 +2,119 @@
 <head>
     <title>MedicineApp</title>
     <link rel="stylesheet" type="text/css" href="information.css">
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
 
+
+    <!-----Firebase Import----------------------------------------------------------------------------->
+    <!---<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCUziUzfFTGNtL3jaboLolTCDtu0MEJciw",
+        authDomain: "cogs121-987aa.firebaseapp.com",
+        databaseURL: "https://cogs121-987aa.firebaseio.com",
+        projectId: "cogs121-987aa",
+        storageBucket: "cogs121-987aa.appspot.com",
+        messagingSenderId: "358987770834",
+        appId: "1:358987770834:web:5ee80c2c4317e68a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script> -->
+    <!--------------------------------------------------------------------------------------------------->
+
+
+    <!-----Firebase Import Test-------------------------------------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDCEYwodRt7lH0tXKAq1yMwKFXRZEDWk3A",
+        authDomain: "test-7d69d.firebaseapp.com",
+        databaseURL: "https://test-7d69d.firebaseio.com",
+        projectId: "test-7d69d",
+        storageBucket: "test-7d69d.appspot.com",
+        messagingSenderId: "898957171356",
+        appId: "1:898957171356:web:8fbcaac0daf0a4f7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <!--------------------------------------------------------------------------------------------------->
+
+
+    <!-----Javascript Code------------------------------------------------------------------------------->
     <script src="jquery-3.4.0.min.js"></script>
 
     <script type="text/javascript">
 
     $(document).ready(() => {
+<<<<<<< HEAD
 
+=======
+        const database = firebase.database();
+>>>>>>> eef2865bddbb12cb7fbc533582e828b161f63b35
 
         $('#getInfoButton').click(() => {
-            const requestURL = 'drugName/' + $('#drugNameBox').val();
-            console.log('request to', requestURL);
+            const key = $('#drugNameBox').val();
 
-            $.ajax({
-                url: requestURL,
-                type: 'GET',
-                dataType: 'json',
-                success: (data) => {
-                    console.log('You received ', data);
+            console.log("here1");
+            database.ref('results').once('value', (snapshot) => {
+                const list = snapshot.val();
+                console.log("here2");
+                console.log(list[0].openfda.generic_name)
+                for (i =  0; i < list.length; i++){
+                    if (key.toUpperCase() == list[i].openfda.generic_name){
+                        console.log(i);
+                        console.log(list[i].openfda.generic_name);
+                        $('#IndicDiv').html('Indiction: ' + list[i].indications_and_usage);
+                        break;
+                    }
 
-                    if(data.Indiction && data.Dosage){
-                        $('#IndicDiv').html('Indiction: ' + data.Indiction);
-                        $('#DoseDiv').html('Dosage: ' + data.Dosage);
-                    } else {
-                        $('#IndicDiv').html('');
-                        $('#DoseDiv').html('');
+<<<<<<< HEAD
+
+=======
+                    else{
+                        $('#IndicDiv').html('Please enter a valid name.');
                     }
                 }
             });
+            return;
         });
-
-
-
+>>>>>>> eef2865bddbb12cb7fbc533582e828b161f63b35
     });
 
     </script>
+    <!----------------------------------------------------------------------------------------------------->
+
+
+
+
 </head>
 <body>
     <h1>Drug Information</h1>
 
-    <font size="+20">Drug Name: </font> <input style="font-size:35px;" id="drugNameBox" type="text" class="input"/>
-    <button id="getInfoButton" class="input2">Get Instruction</button>
+    <div id="drugSearch">
+      <input id="drugNameBox" type="text" placeholder="Search Drug by Name"/>
+      <br>
+      <button id="getInfoButton" class="input2">Find Information</button>
+    </div>
 
     <div id="IndicDiv"></div>
     <br>
     <div id="DoseDiv"></div>
 
-    <br>
-    <br>
-    <form method="get" action="./main.html">
-            <button type="submit">Back to Home</button>
-    </form>
+
+    <footer id="navbar">
+      <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
+      <a href="./prescription.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+      <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
+      <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>
+    </footer>
+
+
+
+
+
 </body>
 </html>
