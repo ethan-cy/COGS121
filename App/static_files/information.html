@@ -60,8 +60,10 @@
                 console.log(list[0].openfda.generic_name)
                 for (i =  0; i < list.length; i++){
                     if (key.toUpperCase() == list[i].openfda.generic_name){
+                        console.log(i);
                         console.log(list[i].openfda.generic_name);
                         $('#IndicDiv').html('Indiction: ' + list[i].indications_and_usage);
+                        break;
                     }
 
                     else{
