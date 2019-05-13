@@ -1,8 +1,24 @@
+OLD UI! 
+
 ![Homepage](/images/home.png)
+
 ![Prescription_Renewal](/images/Capture.PNG)
+
 ![Heartrate](/images/Capture1.PNG)
+
 ![My_Account](/images/Capture2.PNG)
+
 ![Drug info](/images/drug_info.PNG)
 
-For Milestone three we added the homepage to the framework, and added working links that would take the buttons from the homepage to their respective pages.
+New UI!
+
+![Prescription_Renewal](/images/prescribe.PNG)
+
+![Heartrate](/images/heartrate.PNG)
+
+![My_Account](/images/account.PNG)
+
+![Drug info](/images/info.PNG)
+
+  From the previous milestone we've added a navigation bar that fits across all screens. This is an improvement from the simple back button that simply returned users back home. In addition, we've added a more hierarchical display of information on the drug information page. This revision is to help organize and neatly display information. In addition, all pages share the same color scheme that emulates the idea of a first aid kit. 
 
