@@ -2,6 +2,7 @@
 <head>
     <title>MedicineApp</title>
     <link rel="stylesheet" type="text/css" href="information.css">
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
 
 
     <!-----Firebase Import----------------------------------------------------------------------------->
@@ -46,13 +47,10 @@
     <script src="jquery-3.4.0.min.js"></script>
 
     <script type="text/javascript">
-
     $(document).ready(() => {
         const database = firebase.database();
-
         $('#getInfoButton').click(() => {
             const key = $('#drugNameBox').val();
-
             console.log("here1");
             database.ref('results').once('value', (snapshot) => {
                 const list = snapshot.val();
@@ -62,19 +60,19 @@
                     if (key.toUpperCase() == list[i].openfda.generic_name){
                         console.log(i);
                         console.log(list[i].openfda.generic_name);
-                        $('#IndicDiv').html('Indiction: ' + list[i].indications_and_usage);
+                        $('#IndicDiv').html('Purpose: ' + list[i].indications_and_usage);
+                        $('#IndicDiv').html('Purpose: ' + list[i].indications_and_usage);
+                        $('#myDIV').style.display = "block";
                         break;
                     }
-
                     else{
                         $('#IndicDiv').html('Please enter a valid name.');
                     }
-                }          
+                }
             });
             return;
-        });   
+        });
     });
-
     </script>
     <!----------------------------------------------------------------------------------------------------->
 
@@ -85,18 +83,26 @@
 <body>
     <h1>Drug Information</h1>
 
-    <font size="+20">Drug Name: </font> <input style="font-size:35px;" id="drugNameBox" type="text" class="input"/>
-    <button id="getInfoButton" class="input2">Get Instruction</button>
+    <div id="drugSearch">
+      <input id="drugNameBox" type="text" placeholder="Search Drug by Name"/>
+      <br>
+      <button id="getInfoButton" class="input2">Find Information</button>
+    </div>
 
     <div id="IndicDiv"></div>
     <br>
     <div id="DoseDiv"></div>
+    <div><img id="pillPic" src="" alt="pic of pill searched"></div>
 
-    <br>
-    <br>
-    <form method="get" action="/main.html">
-            <button type="submit">Back to Home</button>
-    </form>
+
+    <footer id="navbar">
+      <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
+      <a href="./prescription.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+      <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
+      <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>
+    </footer>
+
+
 
 
 
