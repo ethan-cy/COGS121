@@ -2,6 +2,8 @@
 <head>
     <title>MedicineApp</title>
     <link rel="stylesheet" type="text/css" href="account.css">
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+
     <script src="jquery-3.4.0.min.js"></script>
 
     <script type="text/javascript">
@@ -10,9 +12,13 @@
 </head>
 <body>
     <h1>My Account</h1>
-    
-    <form method="get" action="/main.html">
-        <button type="submit">Back to Home</button>
-    </form>
+
+    <footer id="navbar">
+      <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
+      <a href="./prescription.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+      <a href="./information.html" id="info"><img src="./icons/pills.png" alt="drug info icon" /><p>Drug Information</p></a>
+      <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart beat icon" /><p>Heart Rate</p></a>
+    </footer>
+
 </body>
 </html>
