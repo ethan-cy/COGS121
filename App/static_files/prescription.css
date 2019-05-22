@@ -3,6 +3,7 @@ body {
   background-color: #d90130;
   font-family: 'Gugi';
   text-align:center;
+  background-image: linear-gradient(to bottom right, rgb(0, 174, 255) , rgb(38, 207, 193));
   }
 #box {
     display: grid;
@@ -36,6 +37,7 @@ h1 {
   height: 100px;
   margin: 0 auto;
   border:solid 1px black;
+  border-radius: 25px;
 }
 
 .form-group{
@@ -55,6 +57,7 @@ button {
       text-shadow: 1px 1px black;
       border: 20px;
     max-width: 300px;
+    border-radius: 25px;
   }
 
 img {

@@ -2,6 +2,7 @@ body {
   margin: 0;
   background-color: #d90130;
   font-family: 'Gugi';
+  background-image: linear-gradient(to bottom right, rgb(0, 174, 255) , rgb(38, 207, 193));
   }
 #box {
     display: grid;
@@ -64,6 +65,16 @@ img {
     font-size: 40px;
 }
 
+li{
+  font-size: 50px;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 footer > a  {
    float: left;
