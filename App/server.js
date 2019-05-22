@@ -66,11 +66,13 @@ function getLandingURL(callback)
   {
     if (!err && response.statusCode == 200)
     {
+      console.log("got the landing url");
       console.log({status:"success",result:body});
       callback({url:body.landingUrl,token:body.token});
     }
     else
     {
+      console.log("failed to request landing url");
       console.log({status:"error",result:err});
       callback({url:"",token:""});
     }
@@ -78,6 +80,7 @@ function getLandingURL(callback)
 }
 
 function openLandingUrl(){
+  console.log("submitting user's rxNo");
   var options = {
     method: 'POST',
     url: 'https://services-qa.walgreens.com/api/util/mweb5url',
