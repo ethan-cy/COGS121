@@ -19,7 +19,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 // object storing msg body for post
 var opts = {title:"Refill Rx", url:"",token:"",affId:affId,devinf:devinf,appver:appver};
 
-
+app.get('/',function(req,res)
+{
   // call function to get landing url from walgreens
 	getLandingURL(function(json)
 	{
@@ -35,7 +36,6 @@ var opts = {title:"Refill Rx", url:"",token:"",affId:affId,devinf:devinf,appver:
 		}
 	});
 });
-
 /*
 app.get('/callback',function(req,res)
 {
@@ -77,6 +77,7 @@ function getLandingURL(callback)
 		}
 	});
 }
+
 function openLandingUrl(){
     var options = {
   		method: 'POST',
@@ -99,7 +100,6 @@ function openLandingUrl(){
     }
     request(options, function(err,response,body)
   	{
-      $('.formBox').style.display = hidden;
       switch(response) {
         case "refillTryAgain":
           $('#msg').innerHtml = "Invalid RX number";
@@ -111,8 +111,8 @@ function openLandingUrl(){
           $('#msg').innerHtml = "You have backed out of the refill";
           break;
         case "fillAnother":
+          $('.formBox').style.display = visible;
           window.location.href = "./static_files/prescription.html";
-          $('.formBox').style.display = block;
           break;
         default:
           window.location.href = "./static_files/prescription.html";
@@ -134,6 +134,7 @@ app.get('/callback',function(req,res)
 function handleResponse(){
 
 }
+
 app.listen(3000, () => {
     console.log('Server started at http://localhost:3000/');
 });

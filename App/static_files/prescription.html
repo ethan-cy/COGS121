@@ -10,6 +10,7 @@
     $(document).ready(() =>
       $('#refill').click(() =>
         openLandingUrl();
+        $('.formBox').style.display = hidden;
         });
       );
     );
@@ -20,7 +21,7 @@
     <h1>Prescription Renewal</h1>
 
     <div class="formBox">
-    		<form name="form" class="form" action="https://services-qa.walgreens.com/api/util/mweb5url" method="post">
+    		<form name="form" class="form" action="" method="post">
     			<input type="hidden" name="affId" id="affId" value="<%= affId %>" />
     			<input type="hidden" name="token" id="token" value="<%= token %>" />
     			<input type="hidden" name="lat" id="lat" value="41.878113" />
