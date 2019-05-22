@@ -51,11 +51,8 @@
         const database = firebase.database();
         $('#getInfoButton').click(() => {
             const key = $('#drugNameBox').val();
-            console.log("here1");
             database.ref('results').once('value', (snapshot) => {
                 const list = snapshot.val();
-                console.log("here2");
-                console.log(list[0].openfda.generic_name)
                 for (i =  0; i < list.length; i++){
                     if (key.toUpperCase() == list[i].openfda.generic_name){
                         console.log(i);
