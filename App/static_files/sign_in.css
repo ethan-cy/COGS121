@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  background-color: #d90130;
+  font-family: 'Gugi';
+  }
+
+h1 {
+  padding-top: 100px;
+  text-align: center;
+  font-size: 125px;
+  text-decoration: underline;
+  color: white;
+  text-shadow: 8px 8px black;
+  }
+.redirect{
+    text-align: center;
+  }
+
+div {
+  font-size: 80;
+}
