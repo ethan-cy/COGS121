@@ -1,7 +1,7 @@
 For this milestone, we changed the old red background color to a gradient of light blue and light green. The red seemed too bright on users and we changed it to something lighter and gives a more comfortable feeling.
 ![](https://github.com/ethan-cy/COGS121/blob/master/images/Screen%20Shot%202019-05-22%20at%2010.49.10%20AM.png)
 
-We also changed multiple input boxes and buttons to have a round corner to be more friendly.
+We changed multiple input boxes and buttons to have a round corner to be more friendly. We also fixed the buttom navigation bar to not be buggy when we click on different pages, and made it consistent to have 5 options on all the feature pages.
 ![](https://github.com/ethan-cy/COGS121/blob/master/images/Screen%20Shot%202019-05-22%20at%2010.49.21%20AM.png)
 
 As suggested, we put our information displayed into a box to make it clearer and easier to see.
