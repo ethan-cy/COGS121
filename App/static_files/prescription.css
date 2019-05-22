@@ -2,6 +2,7 @@ body {
   margin: 0;
   background-color: #d90130;
   font-family: 'Gugi';
+  text-align:center;
   }
 #box {
     display: grid;
@@ -29,6 +30,19 @@ h1 {
 .redirect{
     text-align: center;
   }
+#rxNo {
+  width: 50%;
+  font-size: 50px;
+  height: 100px;
+  margin: 0 auto;
+  border:solid 1px black;
+}
+
+.form-group{
+  font-size: 50px;
+  height: 100px;
+  margin: 0 auto;
+}
 
 button {
     font-size: 50px;
@@ -39,7 +53,6 @@ button {
     margin:auto;
       text-shadow: 1px 1px black;
       border: 20px;
-    display: block;
     max-width: 300px;
   }
 
@@ -71,7 +84,7 @@ img {
 
 footer > a  {
    float: left;
-   width: 24.8%;
+   width: 19.9%;
    text-align: center;
    padding: 0;
    color: black;
@@ -91,19 +104,25 @@ footer > a  {
    font-size: 30px;
  }
 
- #prescribe{
 
-   border-left: 1px solid black;
-   border-right: 1px solid black;
- }
- #heartrate {
+  #prescribe{
 
-   border-left: 1px solid black;
-   border-right: 1px solid black;
- }
- #home {
-   border-right: 1px solid black;
- }
+
+    border-right: 1px solid black;
+  }
+  #heartrate {
+
+
+    border-right: 1px solid black;
+  }
+  #home {
+    border-right: 1px solid black;
+  }
+
+  #information {
+    border-right: 1px solid black;
+
+  }
 
  a:hover{
    background-color: #A5A59C;
@@ -114,7 +133,7 @@ footer {
    bottom: 0;
    left: 0;
    width: 100%;
-   height: 10vh;
+   height: 180px;
    background-color: white;
-   overflow:auto;
+   overflow:visible;
  }

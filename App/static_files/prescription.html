@@ -5,20 +5,49 @@
     <script src="jquery-3.4.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="prescription.css">
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
-
+    <script src="server.js"></script>
     <script type="text/javascript">
-    //Javascript code
+    $(document).ready(() =>
+      $('#refill').click(() =>
+        openLandingUrl();
+        });
+      );
+    );
     </script>
+
 </head>
 <body>
     <h1>Prescription Renewal</h1>
 
-    <footer id="navbar">
-      <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
-      <a href="./information.html" id="information"><img src="./icons/pills.png" alt="information icon"/><p>Information</p> </a>
-      <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
-      <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>
-    </footer>
+    <div class="formBox">
+    		<form name="form" class="form" action="https://services-qa.walgreens.com/api/util/mweb5url" method="post">
+    			<input type="hidden" name="affId" id="affId" value="<%= affId %>" />
+    			<input type="hidden" name="token" id="token" value="<%= token %>" />
+    			<input type="hidden" name="lat" id="lat" value="41.878113" />
+    			<input type="hidden" name="lng" id="lng" value="-87.629799" />
+    			<div class="form-group"><label>Rx Number:</label><br/><input type="text" name="rxNo" id="rxNo" value="0459772-59382" /></div>
+    			<input type="hidden" name="appCallBackScheme" id="appCallBackScheme" value="http://localhost:3000/callback" />
+    			<input type="hidden" name="appCallBackAction" id="appCallBackAction" value="rx" />
+    			<input type="hidden" name="trackingId" id="trackingId" value="123456" />
+    			<input type="hidden" name="appId" id="appId" value="refillByScan" />
+    			<input type="hidden" name="act" id="act" value="chkExpRx" />
+    			<input type="hidden" name="devinf" id="devinf" value="<%= devinf %>" />
+    			<input type="hidden" name="appver" id="appver" value="<%= appver %>" />
+    			<button id="refill" class="btn btn-success btn-lg btn-block">Refill</button>
+    		</form>
+    	</div>
+
+      <div id="msgBox">
+        <p id="msg"></p>
+      </div>
+
+      <footer id="navbar">
+        <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
+        <a href="./prescription.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+        <a href="./information.html" id="information"><img src="./icons/pills.png" alt="information icon"/><p>Information</p> </a>
+        <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
+        <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>
+      </footer>
 
 </body>
 </html>
