@@ -3,6 +3,7 @@ body {
   background-color: #d90130;
   font-family: 'Gugi';
   text-align:center;
+  background-image: linear-gradient(to bottom right, rgb(0, 174, 255) , rgb(38, 207, 193));
 }
 
 #box {
@@ -45,6 +46,7 @@ input{
       height: 100px;
       margin: 0 auto;
       border:solid 1px black;
+      border-radius: 25px;
   }
 
   #getInfoButton {
@@ -60,11 +62,12 @@ input{
   }
 
   #IndicDiv {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 8%;
+    margin-right: 8%;
     margin-top: 50px;
     font-size: 30px;
     background-color: white;
+    border-radius: 25px;
   }
 
   #pillPic {
