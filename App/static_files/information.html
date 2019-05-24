@@ -2,7 +2,8 @@
 <head>
     <title>MedicineApp</title>
     <link rel="stylesheet" type="text/css" href="information.css">
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
 
 
     <!-----Firebase Import----------------------------------------------------------------------------->
@@ -62,7 +63,7 @@
                     $('#IndicDiv').html('Cannot find data.');
                 }
 
-                $('#IndicDiv').html('Purpose: ' + data.indications_and_usage);
+                $('#IndicDiv').html('Purpose: ' + data.indications_and_usage + ".");
             });
             return;
         });

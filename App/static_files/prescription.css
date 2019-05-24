@@ -20,12 +20,13 @@ hr {
   }
 h1 {
 
-  padding-top: 100px;
+  padding-top: 150px;
   text-align: center;
-  font-size: 125px;
-  text-decoration: underline;
+  font-size: 100px;
+  /* text-decoration: underline; */
   color: white;
-  text-shadow: 8px 8px black;
+  /* text-shadow: 8px 8px black; */
+  font-family: 'Hind Madurai', sans-serif;
 
   }
 .redirect{
