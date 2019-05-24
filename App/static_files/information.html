@@ -6,26 +6,26 @@
 
 
     <!-----Firebase Import----------------------------------------------------------------------------->
-    <!---<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    -<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
     <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyCUziUzfFTGNtL3jaboLolTCDtu0MEJciw",
-        authDomain: "cogs121-987aa.firebaseapp.com",
-        databaseURL: "https://cogs121-987aa.firebaseio.com",
-        projectId: "cogs121-987aa",
-        storageBucket: "cogs121-987aa.appspot.com",
-        messagingSenderId: "358987770834",
-        appId: "1:358987770834:web:5ee80c2c4317e68a"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    </script> -->
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyCUziUzfFTGNtL3jaboLolTCDtu0MEJciw",
+          authDomain: "cogs121-987aa.firebaseapp.com",
+          databaseURL: "https://cogs121-987aa.firebaseio.com",
+          projectId: "cogs121-987aa",
+          storageBucket: "cogs121-987aa.appspot.com",
+          messagingSenderId: "358987770834",
+          appId: "1:358987770834:web:5ee80c2c4317e68a"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
     <!--------------------------------------------------------------------------------------------------->
 
 
     <!-----Firebase Import Test-------------------------------------------------------------------------->
-    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
     <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -39,7 +39,7 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    </script>
+    </script> -->
     <!--------------------------------------------------------------------------------------------------->
 
 
@@ -50,22 +50,19 @@
     $(document).ready(() => {
         const database = firebase.database();
         $('#getInfoButton').click(() => {
-            const key = $('#drugNameBox').val();
-            database.ref('results').once('value', (snapshot) => {
-                const list = snapshot.val();
-                for (i =  0; i < list.length; i++){
-                    if (key.toUpperCase() == list[i].openfda.generic_name){
-                        console.log(i);
-                        console.log(list[i].openfda.generic_name);
-                        $('#IndicDiv').html('Purpose: ' + list[i].indications_and_usage);
-                        $('#IndicDiv').html('Purpose: ' + list[i].indications_and_usage);
-                        //$('#myDIV').style.display = "block";
-                        break;
-                    }
-                    else{
-                        $('#IndicDiv').html('Please enter a valid name.');
-                    }
+            const key = $('#drugNameBox').val().toUpperCase();
+            database.ref(key).once('value', (snapshot) => {
+                const data = snapshot.val();
+                console.log(data);
+                if (!data){
+                    $('#IndicDiv').html('Please enter a valid name.');
                 }
+
+                if (!data.indications_and_usage){
+                    $('#IndicDiv').html('Cannot find data.');
+                }
+
+                $('#IndicDiv').html('Purpose: ' + data.indications_and_usage);
             });
             return;
         });
