@@ -11,15 +11,17 @@ appver = "1.0";
 // application set up
 app.set('port', (process.env.PORT || 3000));
 app.use(express.static('static_files'));
-app.set('views', __dirname + '/staticfiles');
-app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // object storing msg body for post
 var opts = {title:"Refill Rx", url:"",token:"",affId:affId,devinf:devinf,appver:appver};
 
+/*
+  get request to obtain landing url from walgreens
+*/
 app.get('/',function(req,res){
+  console.log("Get Request for obtainUrl");
   // call function to get landing url from walgreens
   getLandingURL(function(json)
   {
@@ -27,11 +29,11 @@ app.get('/',function(req,res){
     {
       opts.url = json.url;
       opts.token = json.token;
-      //res.render("static_files/prescription.html", opts);
+      res.send("results:");
     }
     else
     {
-      //res.render("pages/error",{title:"Error"});
+      res.send("error");
     }
   });
 });
@@ -46,8 +48,13 @@ res.render("pages/callback",{title:rx,rx:rx});
 });
 */
 
+/*
+  function that obtains the url
+  populates var opts
+*/
 function getLandingURL(callback)
 {
+  console.log("Post Request for callback");
   var options = {
     method: 'POST',
     url: 'https://services-qa.walgreens.com/api/util/mweb5url',
@@ -79,7 +86,30 @@ function getLandingURL(callback)
   });
 }
 
-function openLandingUrl(){
+/*
+  Post request to open and process prescription
+*/
+
+app.post('/', (req,res) => {
+  console.log("In post request for callback");
+  openLandingURL(req.rxNo, function(json)
+  {
+    if(json != "")
+    {
+      console.log("received feedback")
+      res.send(opts);
+    }
+    else
+    {
+      res.send("error");
+    }
+  });
+});
+
+/*
+  Function that opens the url and sends back a callback url
+*/
+function openLandingUrl(rxNum,callback){
   console.log("submitting user's rxNo");
   var options = {
     method: 'POST',
@@ -88,9 +118,9 @@ function openLandingUrl(){
     body:{
       affId: affId,
       token: opts.token,
-      lat: "CUSTOMER LATITUDE",
-      lng: "CUSTOMER LONGITUDE",
-      rxNo: "CUSTOMER RX NUMBER",
+      lat: "",
+      lng: "",
+      rxNo: rxNum,
       appCallBackScheme: "YOUR APP CALLBACK URI SCHEME",
       appCallBackAction: "YOUR APP CALLBACK ACTION",
       trackingId: "YOUR OWN TRACKING ID",
@@ -103,26 +133,11 @@ function openLandingUrl(){
   request(options, function(err,response,body)
   {
     $('.formBox').style.display = hidden;
-    switch(response) {
-      case "refillTryAgain":
-      $('#msg').innerHtml = "Invalid RX number";
-      break;
-      case "cancel":
-      $('#msg').innerHtml = "You have cancelled the refill";
-      break;
-      case "back":
-      $('#msg').innerHtml = "You have backed out of the refill";
-      break;
-      case "fillAnother":
-      window.location.href = "./static_files/prescription.html";
-      $('.formBox').style.display = block;
-      break;
-      default:
-      window.location.href = "./static_files/prescription.html";
-      break;
-    }
+
   });
 }
+
+
 
 app.listen(3000, () => {
   console.log('Server started at http://localhost:3000/');
