@@ -51,7 +51,7 @@
     $(document).ready(() => {
         const database = firebase.database();
         $('#getInfoButton').click(() => {
-            const key = $('#drugNameBox').val().toUpperCase();
+            const key = $('#drugNameBox').val();
             database.ref(key).once('value', (snapshot) => {
                 const data = snapshot.val();
                 console.log(data);
@@ -60,10 +60,25 @@
                 }
 
                 if (!data.indications_and_usage){
-                    $('#IndicDiv').html('Cannot find data.');
+                    $('#IndicDiv').html('Cannot find indication data.');
+                } else{
+                    $('#IndicDiv').html('Indication: ' + data.indications_and_usage + ".");
                 }
 
-                $('#IndicDiv').html('Purpose: ' + data.indications_and_usage + ".");
+                if (!data.pregnancy_or_breast_feeding || data.pregnancy_or_breast_feeding == "undefined"){
+                    $('#PregDiv').html('No pregnancy warnings');
+                } else{
+                    $('#PregDiv').html('Pregnancy Warning: ' + data.pregnancy_or_breast_feeding + ".");
+                }
+
+                if (!data.keep_out_of_reach_of_children || data.keep_out_of_reach_of_children == "undefined"){
+                    $('#WarnDiv').html('No other warnings.');
+                } else{
+                    $('#WarnDiv').html('Other Warning: ' + data.keep_out_of_reach_of_children + ".");
+                }
+
+                
+                
             });
             return;
         });
@@ -85,6 +100,12 @@
     </div>
 
     <div id="IndicDiv"></div>
+    <br>
+    <div id="PregDiv"></div>
+    <br>
+    <div id="WarnDiv"></div>
+    <br>
+    <div id="BlankDiv"></div>
     <br>
     <div id="DoseDiv"></div>
     <div><img id="pillPic" src="" alt="pic of pill searched"></div>

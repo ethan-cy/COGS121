@@ -71,6 +71,24 @@ input{
     border-radius: 25px;
   }
 
+  #PregDiv {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 50px;
+    font-size: 30px;
+    background-color: white;
+    border-radius: 25px;
+  }
+
+  #WarnDiv {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 50px;
+    font-size: 30px;
+    background-color: white;
+    border-radius: 25px;
+  }
+
   #pillPic {
     display: none;
   }
