@@ -37,13 +37,13 @@
         const dayVal = $('#DayBox').val();
         const rateVal = $('#RateBox').val();
 
-        if (date_time == null || date_time == "" 
-        || dayVal == null || dayVal == "" 
+        if (date_time == null || date_time == ""
+        || dayVal == null || dayVal == ""
         || rateVal == null || rateVal == ""){
           alert("Please Enter All Necessary Information.");
-        } 
-        
-        if (!dayVal.toLowerCase().includes("monday") 
+        }
+
+        if (!dayVal.toLowerCase().includes("monday")
         && !dayVal.toLowerCase().includes("tuesday")
         && !dayVal.toLowerCase().includes("wednesday")
         && !dayVal.toLowerCase().includes("thursday")
@@ -52,7 +52,7 @@
         && !dayVal.toLowerCase().includes("sunday")){
           alert("Please Enter a Valid Day.");
         }
-        
+
         else{
           database.ref('users/' + date_time).set({
           Day: dayVal,
@@ -60,7 +60,7 @@
           });
           window.location.pathname = '/heartrate2.html';
         }
-        
+
 
         // database.ref('users/').remove();
         // database.ref('users/PlaceHolder').set({Day: 'Monday', HeartRate: '80'});
@@ -101,7 +101,7 @@
 
     <footer id="navbar">
       <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
-      <a href="./prescription.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+      <a href="./drugdosage.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
       <a href="./information.html" id="information"><img src="./icons/pills.png" alt="information icon"/><p>Information</p> </a>
       <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
       <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>

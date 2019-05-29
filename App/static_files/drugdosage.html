@@ -1,0 +1,134 @@
+<html>
+<head>
+  <title>MedicineApp - pill tracker</title>
+  <link rel="stylesheet" type="text/css" href="prescription.css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#config-web-app -->
+
+  <script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAwBNshPstMv4gkbTYYZxklVdUh6neHQnc",
+    authDomain: "cogs121doseinfo.firebaseapp.com",
+    databaseURL: "https://cogs121doseinfo.firebaseio.com",
+    projectId: "cogs121doseinfo",
+    storageBucket: "cogs121doseinfo.appspot.com",
+    messagingSenderId: "297528001615",
+    appId: "1:297528001615:web:b9c799c375583153"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+  <!--------------------------------------------------------------------------------------------------->
+
+
+  <!-----Javascript Code------------------------------------------------------------------------------->
+  <script src="jquery-3.4.0.min.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(() =>{
+    const database = firebase.database();
+    if(database.ref('users/') == null || database.ref('users/') == ""){
+      console.log("created");
+    }
+    $('#drugHistoryBtn').click(() => {
+        $('#drugHistoryBtn').hide();
+        $('#newPrescripBtn').hide();
+        window.location.href = 'prescription.html';
+    });
+
+    $('#newPrescripBtn').click(() => {
+        $('#newPrescripBtn').hide();
+        $('#drugHistoryBtn').hide();
+        $('#drugDoseInfo').show();
+    });
+
+    $('#uploadInfoButton').click(() => {
+      const name = $('#drugNameBox').val().toLowerCase();
+      const dosage = $('#doseRecBox').val();
+      const doseHrBox = $('#doseHrBox').val();
+      const doseMinBox = $('#doseMinBox').val();
+      const note = $('doseNoteBox').val();
+
+      const time = doseHrBox + "Hr " + doseMinBox + "Min" ;
+
+      if ( name == "" ||  dosage == "" ||  ( doseHrBox == "" && doseMinBox == "")){
+        alert("Please Enter All Necessary Information.");
+      }
+      else
+      {
+        var url = "users/" + name;
+        console.log("url");
+        database.ref(url).set(
+        {
+          drugName: name,
+          recDose: dosage,
+          consumptionTime: time,
+          notes: note
+        });
+        $('#drugDoseInfo').hide();
+        $('#formBox').show();
+      }
+
+
+      // database.ref('users/').remove();
+      // database.ref('users/PlaceHolder').set({Day: 'Monday', HeartRate: '80'});
+
+      // database.ref('users/PlaceHolder').remove();
+    });
+  });
+  </script>
+  <!----------------------------------------------------------------------------------------------------->
+
+
+
+
+</head>
+<body>
+  <h1>Pill Tracker</h1>
+
+  <div id="formBox">
+      <button id="drugHistoryBtn"> Medicine History </button>
+      <br>
+      <button id="newPrescripBtn"> Insert Prescription </button>
+  </div>
+
+  <form id="drugDoseInfo" method="post">
+    <label>Drug Name: </label>
+    <input id="drugNameBox" type="text" placeholder="ie: Aspirin"/>
+    <br>
+    <label>Rec. Dosage: </label>
+    <input id="doseRecBox" type="text" placeholder="How many pills are consumed at one instance?"/>
+    <br>
+    <label>When: </label>
+    <br>
+    <label>&nbsp&nbsp&nbsp&nbsp Hours: </label>
+    <input id="doseHrBox" type="number" placeholder = "4"/>
+        <br>
+    <label>&nbsp&nbsp&nbsp&nbsp Minutes: </label>
+    <input id="doseMinBox" type="text" placeholder = "30"/>
+
+        <br>
+    <label>Special note: </label>
+    <input id="doseNoteBox" type="text" placeholder="Take after eating breakfast!"/>
+    <br>
+    <button id="uploadInfoButton" class="input2">Upload</button>
+  </form>
+
+  <footer id="navbar">
+    <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
+    <a href="./drugdosage.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+    <a href="./information.html" id="information"><img src="./icons/pills.png" alt="information icon"/><p>Information</p> </a>
+    <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
+    <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>
+  </footer>
+
+</body>
+</html>

@@ -6,8 +6,47 @@
   <link rel="stylesheet" type="text/css" href="prescription.css">
   <!-- <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAwBNshPstMv4gkbTYYZxklVdUh6neHQnc",
+      authDomain: "cogs121doseinfo.firebaseapp.com",
+      databaseURL: "https://cogs121doseinfo.firebaseio.com",
+      projectId: "cogs121doseinfo",
+      storageBucket: "cogs121doseinfo.appspot.com",
+      messagingSenderId: "297528001615",
+      appId: "1:297528001615:web:b9c799c375583153"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
   <script type="text/javascript">
   $(document).ready(() => {
+    const database = firebase.database();
+    $('#getInfoButton').click(() => {
+      const key = $('#drugNameBox').val().toLowerCase();
+      database.ref('users').once('value', (snapshot) => {
+        const list = snapshot.val();
+        for (i =  0; i < list.length; i++){
+          if (key == list[i]){
+            var drug = list[i];
+            console.log(i);
+            $('#drugName').html('Name: ' + drug.drugName);
+            $('#drugRec').html('Recommended Dosage: ' + drug.dosage);
+            $('#drugNote').html("Consume Every: " + drug.consumptionTime);
+            $('#drugNote').html("Special Note: " + drug.notes);
+            break;
+          }
+          else{
+            $('#msgBox').html('Please enter a valid name.');
+          }
+        }
+      });
+    });
+    /*
     var affId = "rxapi",
     apiKey = "0WbibL1pE57WTOuiADgRKrlrGoGUapmg",
     devinf = "NodeJS,10.12",
@@ -15,79 +54,74 @@
     var opts = {};
 
     $.ajax({
-      url: 'https://services-qa.walgreens.com/api/util/mweb5url',
-      type: 'POST',
-      data: {
-        apiKey: apiKey,
-        affId: affId,
-        transaction: "refillByScan",
-        act: "mweb5Url",
-        view: "mweb5UrlJSON",
-        devinf: devinf,
-        appver: appver
-      },
-      success: (data) => {
-        console.log("Received landing url(data)", data);
-      }
-    });
+    url: 'https://services-qa.walgreens.com/api/util/mweb5url',
+    type: 'POST',
+    data: {
+    apiKey: apiKey,
+    affId: affId,
+    transaction: "refillByScan",
+    act: "mweb5Url",
+    view: "mweb5UrlJSON",
+    devinf: devinf,
+    appver: appver
+  },
+  success: (data) => {
+  console.log("Received landing url(data)", data);
+}
+});
 
-    $('#refill').click(() => {
-      console.log("Ajax POST");
-      $.ajax({
-        url: 'landingUrl',
-        type: 'POST',
-        body: {
-          affId: affId,
-          token: opts.token,
-          lat: "",
-          lng: "",
-          rxNo: rxNum,
-          appCallBackScheme: 'main.html',
-          appCallBackAction: 'rx',
-          trackingId: "YOUR OWN TRACKING ID",
-          appId: "refillByScan",
-          act: "chkExpRx",
-          devinf: "THE DEVICE INFO",
-          appver: "THE APP VERSION"
-        },
-        success: (data) => {
-          $('.formBox').style.display = hidden;
-          $('msgBox').html(data.message);
-        }
-      });
-    });
-  });
+$('#refill').click(() => {
+console.log("Ajax POST");
+$.ajax({
+url: 'landingUrl',
+type: 'POST',
+body: {
+affId: affId,
+token: opts.token,
+lat: "",
+lng: "",
+rxNo: rxNum,
+appCallBackScheme: 'main.html',
+appCallBackAction: 'rx',
+trackingId: "YOUR OWN TRACKING ID",
+appId: "refillByScan",
+act: "chkExpRx",
+devinf: "THE DEVICE INFO",
+appver: "THE APP VERSION"
+},
+success: (data) => {
+$('.formBox').style.display = hidden;
+$('msgBox').html(data.message);
+}
+});
+});
+*/
+});
 
-  </script>
+</script>
 
 </head>
 <body>
   <h1>Prescription Renewal</h1>
 
-  <div class="formBox">
-    <form name="form" class="form" action="/prescription.html" method="post">
-      <input type="hidden" name="affId" id="affId" value="<%= affId %>" />
-      <input type="hidden" name="token" id="token" value="<%= token %>" />
-      <input type="hidden" name="lat" id="lat" value="41.878113" />
-      <input type="hidden" name="lng" id="lng" value="-87.629799" />
-      <div class="form-group"><label>Rx Number:</label><br/><input type="text" name="rxNo" id="rxNo" value="0459772-59382" /></div>
-      <input type="hidden" name="appCallBackScheme" id="appCallBackScheme" value="http://localhost:3000/main.html" />
-      <input type="hidden" name="appCallBackAction" id="appCallBackAction" value="rx" />
-      <input type="hidden" name="trackingId" id="trackingId" value="123456" />
-      <input type="hidden" name="appId" id="appId" value="refillByScan" />
-      <input type="hidden" name="act" id="act" value="chkExpRx" />
-      <input type="hidden" name="devinf" id="devinf" value="<%= devinf %>" />
-      <input type="hidden" name="appver" id="appver" value="<%= appver %>" />
-      <button id="refill" class="btn btn-success btn-lg btn-block">Refill</button>
-    </form>
+  <div id="drugSearch">
+    <input id="drugNameBox" type="text" placeholder="Search Drug by Name"/>
+    <br>
+    <button id="getInfoButton" class="input2">Find Information</button>
   </div>
+
+
+  <div id="drugName"></div>
+  <div id="drugRec"></div>
+  <div id="drugTime"></div>
+  <div id="drugNote"></div>
 
   <div id="msgBox">
   </div>
 
   <footer id="navbar">
     <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
-    <a href="./prescription.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+    <a href="./drugdosage.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
     <a href="./information.html" id="information"><img src="./icons/pills.png" alt="information icon"/><p>Information</p> </a>
     <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
     <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>

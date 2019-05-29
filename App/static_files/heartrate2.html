@@ -41,7 +41,7 @@
 
             chart.options.title = { text: "My Heart Rate History" };
 
-            var series1 = { 
+            var series1 = {
                 type: "line",
                 name: "Heart Rate",
                 showInLegend: true
@@ -53,7 +53,7 @@
 
             series1.dataPoints = [
             ];
-            
+
             for (var key in data) {
               const res = key.split("T");
               console.log(res[0] + " " + res[1]);
@@ -66,9 +66,9 @@
           }
         //////////////////////////GraphEnd//////////////////////////
 
-      
 
-      
+
+
 
 
       $('#resetButton').click(() => {
@@ -79,7 +79,7 @@
 
 
     });
-    
+
 
 
     </script>
@@ -101,7 +101,7 @@
 
     <footer id="navbar">
       <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
-      <a href="./prescription.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+      <a href="./drugdosage.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
       <a href="./information.html" id="information"><img src="./icons/pills.png" alt="information icon"/><p>Information</p> </a>
       <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
       <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>
