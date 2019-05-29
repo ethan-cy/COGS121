@@ -7,27 +7,53 @@
   <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
   <script type="text/javascript">
   $(document).ready(() => {
+    var affId = "rxapi",
+    apiKey = "0WbibL1pE57WTOuiADgRKrlrGoGUapmg",
+    devinf = "NodeJS,10.12",
+    appver = "1.0";
+    var opts = {};
+
     $.ajax({
-      url: '/',
-      type: 'GET',
-      dataType: 'json',
+      url: 'https://services-qa.walgreens.com/api/util/mweb5url',
+      type: 'POST',
+      data: {
+        apiKey: apiKey,
+        affId: affId,
+        transaction: "refillByScan",
+        act: "mweb5Url",
+        view: "mweb5UrlJSON",
+        devinf: devinf,
+        appver: appver
+      },
       success: (data) => {
         console.log("Received landing url(data)", data);
       }
     });
-    $('#refill').click(() =>{
-      console.log("Ajax post");
+
+    $('#refill').click(() => {
+      console.log("Ajax POST");
       $.ajax({
-        url: '/',
+        url: 'landingUrl',
         type: 'POST',
-        data: {
-          rxNo: $('#rxNo').val()
+        body: {
+          affId: affId,
+          token: opts.token,
+          lat: "",
+          lng: "",
+          rxNo: rxNum,
+          appCallBackScheme: 'main.html',
+          appCallBackAction: 'rx',
+          trackingId: "YOUR OWN TRACKING ID",
+          appId: "refillByScan",
+          act: "chkExpRx",
+          devinf: "THE DEVICE INFO",
+          appver: "THE APP VERSION"
         },
         success: (data) => {
           $('.formBox').style.display = hidden;
           $('msgBox').html(data.message);
         }
-      })
+      });
     });
   });
 
@@ -38,13 +64,13 @@
   <h1>Prescription Renewal</h1>
 
   <div class="formBox">
-    <form name="form" class="form" action="" method="post">
+    <form name="form" class="form" action="/prescription.html" method="post">
       <input type="hidden" name="affId" id="affId" value="<%= affId %>" />
       <input type="hidden" name="token" id="token" value="<%= token %>" />
       <input type="hidden" name="lat" id="lat" value="41.878113" />
       <input type="hidden" name="lng" id="lng" value="-87.629799" />
       <div class="form-group"><label>Rx Number:</label><br/><input type="text" name="rxNo" id="rxNo" value="0459772-59382" /></div>
-      <input type="hidden" name="appCallBackScheme" id="appCallBackScheme" value="http://localhost:3000/callback" />
+      <input type="hidden" name="appCallBackScheme" id="appCallBackScheme" value="http://localhost:3000/main.html" />
       <input type="hidden" name="appCallBackAction" id="appCallBackAction" value="rx" />
       <input type="hidden" name="trackingId" id="trackingId" value="123456" />
       <input type="hidden" name="appId" id="appId" value="refillByScan" />
