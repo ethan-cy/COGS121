@@ -1,15 +1,13 @@
 // create all necessary variables
-var request = require('request'),
-bodyParser = require('body-parser'),
-express = require('express'),
+const express = require('express'),
 app = express(),
+bodyParser = require('body-parser'),
 affId = "rxapi",
 apiKey = "0WbibL1pE57WTOuiADgRKrlrGoGUapmg",
 devinf = "NodeJS,10.12",
 appver = "1.0";
 
-// application set up
-app.set('port', (process.env.PORT || 3000));
+// handle post request 
 app.use(express.static('static_files'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -18,8 +16,32 @@ app.use(bodyParser.urlencoded({extended: true}));
 var opts = {title:"Refill Rx", url:"",token:"",affId:affId,devinf:devinf,appver:appver};
 
 /*
-  get request to obtain landing url from walgreens
+app.post('https://services-qa.walgreens.com/api/util/mweb5url', (req, res) => {
+    console.log("making post request to obtain url");
+    if (res.statusCode == 200)
+    {
+      console.log("got the landing url");
+      console.log({status:"success",result:body});
+      opts.url = res.body.landingUrl;
+      opts.token = res.body.token;
+      res.send(opts);
+    }
+    else
+    {
+      console.log("failed to request landing url");
+      console.log({status:"error",result:err});
+      opts.url = "";
+      opts.token = "";
+      res.send(opts);
+    }
+});
+
+app.post('landingUrl' , (req, res) => {
+  console.log("making post request for landingUrl");
+});
 */
+
+/*
 app.get('/',function(req,res){
   console.log("Get Request for obtainUrl");
   // call function to get landing url from walgreens
@@ -29,7 +51,8 @@ app.get('/',function(req,res){
     {
       opts.url = json.url;
       opts.token = json.token;
-      res.send("results:");
+      res.send("successful get");
+      //res.render("/prescription.html", opts);
     }
     else
     {
@@ -38,20 +61,6 @@ app.get('/',function(req,res){
   });
 });
 
-/*
-app.get('/callback',function(req,res)
-{
-// access query string
-var rx = (req.query.rx) ? req.query.rx : "";
-
-res.render("pages/callback",{title:rx,rx:rx});
-});
-*/
-
-/*
-  function that obtains the url
-  populates var opts
-*/
 function getLandingURL(callback)
 {
   console.log("Post Request for callback");
@@ -86,29 +95,22 @@ function getLandingURL(callback)
   });
 }
 
-/*
-  Post request to open and process prescription
-*/
-
 app.post('/', (req,res) => {
-  console.log("In post request for callback");
   openLandingURL(req.rxNo, function(json)
   {
     if(json != "")
     {
-      console.log("received feedback")
+      console.log("received feedback");
       res.send(opts);
     }
     else
     {
-      res.send("error");
+      res.send("hello");
+      //res.send();
     }
   });
 });
 
-/*
-  Function that opens the url and sends back a callback url
-*/
 function openLandingUrl(rxNum,callback){
   console.log("submitting user's rxNo");
   var options = {
@@ -121,8 +123,8 @@ function openLandingUrl(rxNum,callback){
       lat: "",
       lng: "",
       rxNo: rxNum,
-      appCallBackScheme: "YOUR APP CALLBACK URI SCHEME",
-      appCallBackAction: "YOUR APP CALLBACK ACTION",
+      appCallBackScheme: 'localhost:3000',
+      appCallBackAction: 'localhost:3000',
       trackingId: "YOUR OWN TRACKING ID",
       appId: "refillByScan",
       act: "chkExpRx",
@@ -133,11 +135,12 @@ function openLandingUrl(rxNum,callback){
   request(options, function(err,response,body)
   {
     $('.formBox').style.display = hidden;
-
+    console.error('error:', error); // Print the error if one occurred
+    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    console.log('body:', body); // Print the HTML for the Google homepage.
   });
 }
-
-
+*/
 
 app.listen(3000, () => {
   console.log('Server started at http://localhost:3000/');
