@@ -2,12 +2,46 @@
 <head>
     <title>MedicineApp</title>
     <link rel="stylesheet" type="text/css" href="account.css">
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+    // Your web app's Firebase configuration
+        var firebaseConfig = {
+        apiKey: "AIzaSyD1AmgEsoFJzEU4QpwErkC3hB4tZ3PfJDw",
+        authDomain: "cogs121-e90a1.firebaseapp.com",
+        databaseURL: "https://cogs121-e90a1.firebaseio.com",
+        projectId: "cogs121-e90a1",
+        storageBucket: "cogs121-e90a1.appspot.com",
+        messagingSenderId: "147712780983",
+        appId: "1:147712780983:web:60d08250c06d5322"
+        };
+    // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
 
     <script src="jquery-3.4.0.min.js"></script>
 
     <script type="text/javascript">
     //Javascript code
+    </script>
+    <script type="text/javascript">
+    $(document).ready(() => {
+        const database = firebase.database();
+        $('#updateInfoButton').click(() => {
+            database.ref.set({
+                name: $('#name').val(),
+                age: $('#age').val()
+            });
+        });
     </script>
 </head>
 <body>
@@ -15,9 +49,14 @@
     <img src="./icons/profilepic.png" alt="profile picture">
     <ul>
       <li>Name: </li>
+      <input type="text" class="input" name="Name" id="name">
       <li>Age: </li>
+      <input type="text" class="input" name="Age" id="age">
     </ul>
-    <dive class="panel" display:none>
+    <div class="wrapper">
+        <button id="updateInfoButton" class="input2">Submit</button>
+    </div>
+    <div class="panel" display:none>
 
 
 

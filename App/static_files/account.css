@@ -18,17 +18,22 @@ hr {
     margin-bottom: 30px;
   }
 h1 {
-  padding-top: 100px;
+  padding-top: 150px;
   text-align: center;
-  font-size: 125px;
-  text-decoration: underline;
+  font-size: 100px;
+  /* text-decoration: underline; */
   color: white;
-  text-shadow: 8px 8px black;
+  /* text-shadow: 8px 8px black; */
+  font-family: 'Hind Madurai', sans-serif;
   }
 .redirect{
     text-align: center;
   }
 
+.wrapper{
+  margin-top: 50px;
+  text-align: center;
+}
 button {
     font-size: 50px;
     background-color: grey;
@@ -47,12 +52,13 @@ img {
   }
 
   .input{
-      width: 300px;
+      width: 500px;
       height: 100px;
       margin: 0 auto;
       border: none; /* <-- This thing here */
       border:solid 1px black;
       border-radius: 30px;
+      font-size: 50px;
   }
 
   .input2{

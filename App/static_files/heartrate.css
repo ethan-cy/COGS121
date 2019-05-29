@@ -14,10 +14,11 @@ hr {
 h1 {
   padding-top: 100px;
   text-align: center;
-  font-size: 125px;
-  text-decoration: underline;
+  font-size: 100px;
+  /* text-decoration: underline; */
   color: white;
-  text-shadow: 8px 8px black;
+  /* text-shadow: 8px 8px black; */
+  font-family: 'Hind Madurai', sans-serif;
   }
 
 ul {
@@ -29,12 +30,15 @@ ul {
 }
 
 button {
-    font-size: 50px;
+    font-size: 60px;
     background-color: grey;
-    color: black;
+    color: white;
     padding-bottom: 10px;
     padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
     margin:auto;
+    border-radius: 25px;
   }
 
 
@@ -92,3 +96,52 @@ footer {
    background-color: white;
    overflow: visible;
  }
+
+
+input[type=text] {
+  font-size: 50px;
+  text-align: center;
+}
+
+input{
+  width: 75%;
+  font-size: 50px;
+  height: 100px;
+  margin: 0 auto;
+  border:solid 1px black;
+  border-radius: 25px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 50px;
+  /* text-decoration: underline; */
+  color: white;
+  /* text-shadow: 8px 8px black; */
+  font-family: 'Hind Madurai', sans-serif;
+  }
+
+
+  br2{
+    display: block;
+    margin: 170px 0;
+  }
+
+  br3{
+    display: block;
+    margin: 120px 0;
+  }
+
+  #RateBox{
+  width: 40%;
+  font-size: 50px;
+  height: 100px;
+  margin-left: 2%;
+  border:solid 1px black;
+  border-radius: 25px;
+  text-align:center;
+  }
+
+  #dateTime{
+    text-align:center;
+  }

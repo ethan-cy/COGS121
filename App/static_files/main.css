@@ -22,10 +22,11 @@ hr {
 h1 {
   padding-top: 100px;
   text-align: center;
-  font-size: 175px;
-  text-decoration: underline;
+  font-size: 150px;
+  /* text-decoration: underline; */
   color: white;
   text-shadow: 8px 8px black;
+  font-family: 'Hind Madurai', sans-serif;
 }
 form {
   text-align: center;
