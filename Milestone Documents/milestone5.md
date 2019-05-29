@@ -38,6 +38,10 @@ UI Screenshot:
 
 ![](https://github.com/ethan-cy/COGS121/blob/master/images/Marco/Capture.PNG)
 
+6. Personal Drug Dosage Page 
+
+![](https://github.com/ethan-cy/COGS121/blob/master/images/drugdosage.png)
+
 The UI improvement:
 
 For some pages we have filled the previous empty space of the page with more information to make the page looks more informative and full. We have also made slight changes to the positions of the page titles and the color of the buttons.
@@ -67,7 +71,7 @@ For the information about drugs, we are using the dataset from openfda. We clean
 For the heart-rate tracking feature, we first take in user inputs including the heart-rate number and dates and times, and we insert them onto a Firebase database. We then prompt the users to another page where a line graph, formed by making the x-axis the dates and times and y-axis the heart-rate number, shows the chronological change of the user's heart-rate. We used CanvasJS to draw the line graph.
 
 3. Personal Drug Dosage Display: 
-This page is not featured on 
+This page will retrieve data via realtime database. The data will be used to display information in a text box with each detail bulleted and boldened. The text will be large enough for elderly people to easily read the display. 
 
 
 More Ambitious Ideas:
