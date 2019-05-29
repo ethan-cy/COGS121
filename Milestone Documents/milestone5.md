@@ -34,7 +34,8 @@ UI Screenshot:
 
 
 
-
+5. Account Page
+![](https://github.com/ethan-cy/COGS121/blob/master/images/Marco/Capture.PNG)
 
 The UI improvement:
 
