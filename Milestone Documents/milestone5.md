@@ -3,7 +3,7 @@ Milestone 5:
 
 Target User Population and Its Use:
 
-Our app's target user population is the elders. There are three main features of the app including usage tracking, drug information searching, and heart rate tracking. When the user wants to enter his or her medicines' usage, he or she can use the usage tracking feature to enter the information and keep track of a list of medicines he or she is taking and how they should be consumed. In result the user will remember what to take and how to take them easily. A user can also search for a drug's indication, pregnancy warning, and other warning informations by entering the drug's name in the durg info page, and then the user can get the information in a easy-to-read text box instead of searching for the information on the drug bottles on which the texts can sometimes be small and hard to read. A user can also track heart rate by manually enter the date and time he or she measures the heart rate and the heart rate number, and then is presented with a line chart showing how the heart rate changes over time.
+Our app's target user population is the elders. There are three main features of the app including usage tracking, drug information searching, and heart rate tracking. When the the user wants to enter his or her medicines' usage, he or she can use the usage tracking feature to enter the information and keep track of a list of medicines he or she is taking and how they should be consumed. In result the user will remember what to take and how to take them easily. A user can also search for a drug's indication, pregnancy warning, and other warning informations by entering the drug's name in the durg info page, and then the user can get the information in a easy-to-read text box instead of searching for the information on the drug bottles on which the texts can sometimes be small and hard to read. A user can also track heart rate by manually enter the date and time he or she measures the heart rate and the heart rate number, and then is presented with a line chart showing how the heart rate changes over time. Also a supplementary feature is drug dosage feature, where users can enter their current medicines and their recommended dosages. The user can then look up their prescriptions and see in clear text when and how to consume their meds. 
 
 
 
@@ -65,6 +65,9 @@ For the information about drugs, we are using the dataset from openfda. We clean
 
 2. Heart Rate Display:
 For the heart-rate tracking feature, we first take in user inputs including the heart-rate number and dates and times, and we insert them onto a Firebase database. We then prompt the users to another page where a line graph, formed by making the x-axis the dates and times and y-axis the heart-rate number, shows the chronological change of the user's heart-rate. We used CanvasJS to draw the line graph.
+
+3. Personal Drug Dosage Display: 
+This page is not featured on 
 
 
 More Ambitious Ideas:
