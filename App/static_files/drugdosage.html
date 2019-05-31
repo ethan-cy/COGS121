@@ -35,15 +35,26 @@
   <script type="text/javascript">
   $(document).ready(() =>{
     const database = firebase.database();
-    if(database.ref('users/') == null || database.ref('users/') == ""){
-      console.log("created");
-    }
+    $('#resetButton').click(() => {
+      console.log('Resetting the database');
+      //database.ref('austinnim/').remove(); // delete the entire collection
+      //database.ref('helloworld/').remove();
+      // writes data to the database:
+      database.ref('currUser/').set({user:"", session:5});
+      database.ref('billwill/accountInfo').set({password: 'password', email: 'test@gmail.com', age: '55', bloodType: 'AB+', height: "190 cm", name: "Bill Larson", weight: "155"});
+      database.ref('billwill/heartRate/jan/2019-05-1T12:10').set({day: "Friday", heartRate: "77;"});
+      database.ref('billwill/heartRate/jan/2019-05-1T15:10').set({day: "Friday", heartRate: "88;"});
+      database.ref('billwill/heartRate/jan/2019-05-1T18:20').set({day: "Friday", heartRate: "89;"});
+      database.ref('billwill/prescriptions').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
+    });
+
     $('#drugHistoryBtn').click(() => {
         $('#drugHistoryBtn').hide();
         $('#newPrescripBtn').hide();
         window.location.href = 'prescription.html';
     });
-
+    var currUser = "";
+    $(.ajax)
     $('#newPrescripBtn').click(() => {
         $('#newPrescripBtn').hide();
         $('#drugHistoryBtn').hide();
@@ -55,17 +66,19 @@
       const dosage = $('#doseRecBox').val();
       const doseHrBox = $('#doseHrBox').val();
       const doseMinBox = $('#doseMinBox').val();
-      const note = $('doseNoteBox').val();
+      const note = $('#doseNoteBox').val();
 
-      const time = doseHrBox + "Hr " + doseMinBox + "Min" ;
+      const time = doseHrBox + "Hr(s) " + doseMinBox + "Min(s)" ;
+      console.log("name: " + name  + " | dose: " + dosage);
+
 
       if ( name == "" ||  dosage == "" ||  ( doseHrBox == "" && doseMinBox == "")){
         alert("Please Enter All Necessary Information.");
       }
       else
       {
-        var url = "users/" + name;
-        console.log("url");
+        var url =  "/" + $('#drugNameBox').val().toLowerCase();
+        console.log(url);
         database.ref(url).set(
         {
           drugName: name,
@@ -73,15 +86,7 @@
           consumptionTime: time,
           notes: note
         });
-        $('#drugDoseInfo').hide();
-        $('#formBox').show();
       }
-
-
-      // database.ref('users/').remove();
-      // database.ref('users/PlaceHolder').set({Day: 'Monday', HeartRate: '80'});
-
-      // database.ref('users/PlaceHolder').remove();
     });
   });
   </script>
@@ -121,6 +126,8 @@
     <br>
     <button id="uploadInfoButton" class="input2">Upload</button>
   </form>
+
+  <button id="resetButton">Reset DB</button>
 
   <footer id="navbar">
     <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>

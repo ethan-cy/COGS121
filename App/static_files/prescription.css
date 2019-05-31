@@ -152,14 +152,40 @@ footer {
     text-align: left;
     margin: 0 auto;
 width: 700px;
+
  }
 
+#drugName {
+  font-size: 48px;
+}
+#drugRec {
+  font-size: 48px;
+}
+
+#drugNote {
+  font-size: 48px;
+}
+
+#drugTime {
+  font-size: 48px;
+}
  #uploadInfoButton {
    margin-top: 100px;
  }
  #newPrescripBtn {
    margin-bottom: 200px;
  }
+
+ #getInfoButton {
+   margin-top: 100px;
+ }
+#sgBox {
+  text-align: center;
+  margin: 0 auto;
+width: 700px;
+background-color: white;
+}
+
 input {
   font-size: 35px
 }

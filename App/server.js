@@ -7,7 +7,7 @@ apiKey = "0WbibL1pE57WTOuiADgRKrlrGoGUapmg",
 devinf = "NodeJS,10.12",
 appver = "1.0";
 
-// handle post request 
+// handle post request
 app.use(express.static('static_files'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -15,6 +15,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 // object storing msg body for post
 var opts = {title:"Refill Rx", url:"",token:"",affId:affId,devinf:devinf,appver:appver};
 
+var currUser = "test@gmail.com"
+app.post('/', (req, res) => {
+  currUser = req.body.user;
+});
 /*
 app.post('https://services-qa.walgreens.com/api/util/mweb5url', (req, res) => {
     console.log("making post request to obtain url");
