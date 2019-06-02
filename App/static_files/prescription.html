@@ -26,8 +26,9 @@
   <script type="text/javascript">
   $(document).ready(() => {
     const database = firebase.database();
+    var currUser = "billwill"; //FILL  IN
     $('#getInfoButton').click(() => {
-      const key = $('#drugNameBox').val().toLowerCase();
+      const key = $('#userPrescriptions').val();
       console.log("key = " + key);
       database.ref('users').once('value', (snapshot) => {
         const list = snapshot.val();
@@ -51,12 +52,18 @@
         }
       });
     });
-    var prescriptions = document.getElementById('#userPrescriptions');
-    
-    var options = document.createElement('option');
-    options.value = "";
-    options.innerHtml = options;
-    prescriptions.appendChild();
+    //go through user prescription
+    database.ref(currUser).once('value', (snapshot) => {
+      console.log("got user object");
+      var listOfPrescriptions = snapshot.val().prescriptions;
+      console.log("got list of prescriptions: " + listOfPrescriptions);
+      for(var key in listOfPrescriptions){
+        console.log("key = " + key);
+        var selectTag = document.getElementById('userPrescriptions');
+        console.log("selecTag = " + selectTag);
+        selectTag.options[selectTag.options.length] = new Option(key, key.drugName);
+      }
+    });
   });
 
 </script>
@@ -65,12 +72,12 @@
 <body>
   <h1>Prescription Renewal</h1>
 
-  <div id="drugSearch">
+
     <select id="userPrescriptions">
+          <option value="">--Please choose an option--</option>
     </select>
     <br>
     <button id="getInfoButton" class="input2">Find Information</button>
-  </div>
 
   <div id="msgBox">
     <div id="drugName"></div>

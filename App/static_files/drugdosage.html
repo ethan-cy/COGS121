@@ -38,7 +38,7 @@
     $('#resetButton').click(() => {
       console.log('Resetting the database');
       //database.ref('austinnim/').remove(); // delete the entire collection
-      database.ref('billwill/prescriptions/').remove();
+      //database.ref('billwill/prescriptions/').remove();
       // writes data to the database:
       database.ref('billwill/accountInfo').set({password: 'password', email: 'test@gmail.com', age: '55', bloodType: 'AB+', height: "190 cm", name: "Bill Larson", weight: "155"});
       database.ref('billwill/heartRate/jan/2019-05-1T12:10').set({day: "Friday", heartRate: "77;"});
@@ -76,7 +76,7 @@
       }
       else
       {
-        var url =  "currUser/" + $('#drugNameBox').val().toLowerCase();
+        var url =  currUser;
         console.log(url);
         database.ref(url).set(
         {
