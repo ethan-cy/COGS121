@@ -32,12 +32,14 @@
     $(document).ready(() => {
         const database = firebase.database();
         $('#getInfoButton').click(() => {
-            const key = $('#drugNameBox').val();
+            const key = $('#drugNameBox').val().toLowerCase();
             database.ref(key).once('value', (snapshot) => {
                 const data = snapshot.val();
                 console.log(data);
                 if (!data){
-                    $('#IndicDiv').html('Please enter a valid name.');
+                    $('#IndicDiv').html('<span style="font-size: 60px">Please enter a valid name.</span>');
+                    $('#PregDiv').html('');
+                    $('#WarnDiv').html('');
                 }
                 if (!data.indications_and_usage){
                     $('#IndicDiv').html('Cannot find indication data.');
@@ -47,12 +49,12 @@
                 if (!data.pregnancy_or_breast_feeding || data.pregnancy_or_breast_feeding == "undefined"){
                     $('#PregDiv').html('No pregnancy warnings');
                 } else{
-                    $('#PregDiv').html('Pregnancy Warning: ' + data.pregnancy_or_breast_feeding + ".");
+                    $('#PregDiv').html('<span style="color: red">Pregnancy Warning: </span>' + data.pregnancy_or_breast_feeding + ".");
                 }
                 if (!data.keep_out_of_reach_of_children || data.keep_out_of_reach_of_children == "undefined"){
                     $('#WarnDiv').html('No other warnings.');
                 } else{
-                    $('#WarnDiv').html('Other Warning: ' + data.keep_out_of_reach_of_children + ".");
+                    $('#WarnDiv').html('<span style="color: red">Other Warning:  </span>' + data.keep_out_of_reach_of_children + ".");
                 }
                 
                 
@@ -90,7 +92,7 @@
 
     <footer id="navbar">
       <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
-      <a href="./drugDosage.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
+      <a href="./drugdosage.html" id="prescribe"><img src="./icons/pillbottle.png" alt="prescription icon"/><p>Prescription</p> </a>
       <a href="./information.html" id="information"><img src="./icons/pills.png" alt="information icon"/><p>Information</p> </a>
       <a href="./heartrate.html" id="heartrate"><img src="./icons/heartbeat.png" alt="heart rate icon" /><p>Heart Rate</p></a>
       <a href="./account.html" id="account"><img src="./icons/user.png" alt="user icon" /><p>My Account</p></a>
