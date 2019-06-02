@@ -9,31 +9,37 @@
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
   <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyAwBNshPstMv4gkbTYYZxklVdUh6neHQnc",
-      authDomain: "cogs121doseinfo.firebaseapp.com",
-      databaseURL: "https://cogs121doseinfo.firebaseio.com",
-      projectId: "cogs121doseinfo",
-      storageBucket: "cogs121doseinfo.appspot.com",
-      messagingSenderId: "297528001615",
-      appId: "1:297528001615:web:b9c799c375583153"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAwBNshPstMv4gkbTYYZxklVdUh6neHQnc",
+    authDomain: "cogs121doseinfo.firebaseapp.com",
+    databaseURL: "https://cogs121doseinfo.firebaseio.com",
+    projectId: "cogs121doseinfo",
+    storageBucket: "cogs121doseinfo.appspot.com",
+    messagingSenderId: "297528001615",
+    appId: "1:297528001615:web:b9c799c375583153"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
   </script>
 
   <script type="text/javascript">
   $(document).ready(() => {
     const database = firebase.database();
+    var currUser = "billwill"; //FILL  IN
     $('#getInfoButton').click(() => {
-      const key = $('#drugNameBox').val().toLowerCase();
+      const key = $('#userPrescriptions').val();
+      console.log("key = " + key);
       database.ref('users').once('value', (snapshot) => {
         const list = snapshot.val();
-        for (i =  0; i < list.length; i++){
-          if (key == list[i]){
-            var drug = list[i];
-            console.log(i);
+        console.log("list = " + list);
+        console.log("list[0] = " + list[0]);
+        for (var key2 in list){
+          console.log("list[key2] = " + list[key2]);
+          console.log("key2 = " + key2);
+          if (key == key2){
+            var drug = list[key2];
+            console.log(drug);
             $('#drugName').html('Name: ' + drug.drugName);
             $('#drugRec').html('Recommended Dosage: ' + drug.dosage);
             $('#drugNote').html("Consume Every: " + drug.consumptionTime);
@@ -41,62 +47,24 @@
             break;
           }
           else{
-            $('#msgBox').html('Please enter a valid name.');
+            //$('#msgBox').html('Please enter a valid name.');
           }
         }
       });
     });
-    /*
-    var affId = "rxapi",
-    apiKey = "0WbibL1pE57WTOuiADgRKrlrGoGUapmg",
-    devinf = "NodeJS,10.12",
-    appver = "1.0";
-    var opts = {};
-
-    $.ajax({
-    url: 'https://services-qa.walgreens.com/api/util/mweb5url',
-    type: 'POST',
-    data: {
-    apiKey: apiKey,
-    affId: affId,
-    transaction: "refillByScan",
-    act: "mweb5Url",
-    view: "mweb5UrlJSON",
-    devinf: devinf,
-    appver: appver
-  },
-  success: (data) => {
-  console.log("Received landing url(data)", data);
-}
-});
-
-$('#refill').click(() => {
-console.log("Ajax POST");
-$.ajax({
-url: 'landingUrl',
-type: 'POST',
-body: {
-affId: affId,
-token: opts.token,
-lat: "",
-lng: "",
-rxNo: rxNum,
-appCallBackScheme: 'main.html',
-appCallBackAction: 'rx',
-trackingId: "YOUR OWN TRACKING ID",
-appId: "refillByScan",
-act: "chkExpRx",
-devinf: "THE DEVICE INFO",
-appver: "THE APP VERSION"
-},
-success: (data) => {
-$('.formBox').style.display = hidden;
-$('msgBox').html(data.message);
-}
-});
-});
-*/
-});
+    //go through user prescription
+    database.ref(currUser).once('value', (snapshot) => {
+      console.log("got user object");
+      var listOfPrescriptions = snapshot.val().prescriptions;
+      console.log("got list of prescriptions: " + listOfPrescriptions);
+      for(var key in listOfPrescriptions){
+        console.log("key = " + key);
+        var selectTag = document.getElementById('userPrescriptions');
+        console.log("selecTag = " + selectTag);
+        selectTag.options[selectTag.options.length] = new Option(key, key.drugName);
+      }
+    });
+  });
 
 </script>
 
@@ -104,19 +72,18 @@ $('msgBox').html(data.message);
 <body>
   <h1>Prescription Renewal</h1>
 
-  <div id="drugSearch">
-    <input id="drugNameBox" type="text" placeholder="Search Drug by Name"/>
+
+    <select id="userPrescriptions">
+          <option value="">--Please choose an option--</option>
+    </select>
     <br>
     <button id="getInfoButton" class="input2">Find Information</button>
-  </div>
-
-
-  <div id="drugName"></div>
-  <div id="drugRec"></div>
-  <div id="drugTime"></div>
-  <div id="drugNote"></div>
 
   <div id="msgBox">
+    <div id="drugName"></div>
+    <div id="drugRec"></div>
+    <div id="drugTime"></div>
+    <div id="drugNote"></div>
   </div>
 
   <footer id="navbar">

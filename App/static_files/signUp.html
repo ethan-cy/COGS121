@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>MedicineApp</title>
-    <link rel="stylesheet" type="text/css" href="sign_in.css">
+    <link rel="stylesheet" type="text/css" href="SignUp.css">
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -99,23 +99,24 @@
       <div id="formContent" style = "float:left">
         <!-- Tabs Titles -->
 
-        <!-- Icon -->
-        <div class="fadeIn first">
-          <img src="icons/user.png" id="icon" alt="User Icon" />
-
-        </div>
 
         <!-- Login Form -->
         <form>
-          <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+          <input type="text" id="name" class="fadeIn third" name="name" placeholder="name">
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="email">
           <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-          <input type="submit" class="fadeIn fourth" value="Log In">
-          <a href = "SignUp.html"><input type="button" id ="btnSignUp" value = "Sign up"></input>
+          <input type="text" id="age" class="fadeIn third" name="age" placeholder="age">
+          <input type="text" id="bloodType" class="fadeIn third" name="bloodType" placeholder="blood type">
+          <input type="text" id="height" class="fadeIn third" name="height" placeholder="height">
+          <input type="text" id="weight" class="fadeIn third" name="weight" placeholder="weight">
+
+
+          <a href = "main.html"><input type="button" id ="btnSignUp" value = "Save" ></input>
         </form>
 
         <!-- Remind Password -->
         <div id="formFooter">
-          <a class="underlineHover" href="#">Forgot Password?</a>
+          <a class="underlineHover" href="sign_in.html">Back</a>
         </div>
 
       </div>
