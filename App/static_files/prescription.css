@@ -171,6 +171,9 @@ width: 700px;
 }
  #uploadInfoButton {
    margin-top: 100px;
+   text-align: center;
+   align-content: center;
+   display: none;
  }
  #newPrescripBtn {
    margin-bottom: 200px;
@@ -178,8 +181,9 @@ width: 700px;
 
  #getInfoButton {
    margin-top: 100px;
+   margin-bottom: 100px;
  }
-#sgBox {
+#msgBox {
   text-align: center;
   margin: 0 auto;
 width: 700px;
@@ -191,4 +195,10 @@ input {
 }
  label {
    font-size: 48px;
+ }
+
+ select {
+   font-size: 48px;
+   text-align-last:center;
+   background-color: white;
  }

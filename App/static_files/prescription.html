@@ -28,28 +28,18 @@
     const database = firebase.database();
     var currUser = "billwill"; //FILL  IN
     $('#getInfoButton').click(() => {
-      const key = $('#userPrescriptions').val();
-      console.log("key = " + key);
-      database.ref('users').once('value', (snapshot) => {
-        const list = snapshot.val();
-        console.log("list = " + list);
-        console.log("list[0] = " + list[0]);
-        for (var key2 in list){
-          console.log("list[key2] = " + list[key2]);
-          console.log("key2 = " + key2);
-          if (key == key2){
-            var drug = list[key2];
-            console.log(drug);
-            $('#drugName').html('Name: ' + drug.drugName);
-            $('#drugRec').html('Recommended Dosage: ' + drug.dosage);
-            $('#drugNote').html("Consume Every: " + drug.consumptionTime);
-            $('#drugNote').html("Special Note: " + drug.notes);
-            break;
-          }
-          else{
-            //$('#msgBox').html('Please enter a valid name.');
-          }
+      const key = currUser + '/prescriptions/'+ $('#userPrescriptions').val();
+      database.ref(key).once('value', (snapshot) => {
+        const drug = snapshot.val();
+        if(drug == null){
+            $('#msgBox').html('Please enter a valid name.');
         }
+        console.log(drug);
+        $('#drugName').html('Name: ' + drug.drugName);
+        $('#drugRec').html('Recommended Dosage: ' + drug.recDose);
+        $('#drugNote').html("Consume Every: " + drug.consumptionTime);
+        $('#drugNote').html("Special Note: " + drug.notes);
+
       });
     });
     //go through user prescription
