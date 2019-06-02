@@ -38,10 +38,10 @@
       //database.ref('billwill/prescriptions/').remove();
       // writes data to the database:
       database.ref().remove();
-      database.ref('billwill/accountInfo').set({password: 'password', email: 'test@gmail.com', age: '55', bloodType: 'AB+', height: "190 cm", name: "Bill Larson", weight: "155"});
-      database.ref('billwill/heartRate/2019-05-1T12:10').set({day: "Friday", heartRate: "77;"});
-      database.ref('billwill/heartRate/2019-05-1T15:10').set({day: "Friday", heartRate: "88;"});
-      database.ref('billwill/heartRate/2019-05-1T18:20').set({day: "Friday", heartRate: "89;"});
+      database.ref('billwill/accountInfo').set({name: "Bill Larson", password: 'password', username: 'billwill', age: '55', bloodType: 'AB+', height: "190 cm",  weight: "155 kg"});
+      database.ref('billwill/heartRate/2019-05-1T12:10').set({day: "Friday", heartRate: "77"});
+      database.ref('billwill/heartRate/2019-05-1T15:10').set({day: "Friday", heartRate: "88"});
+      database.ref('billwill/heartRate/2019-05-1T18:20').set({day: "Friday", heartRate: "89"});
       database.ref('billwill/prescriptions/mucinexdm').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
       database.ref('billwill/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
     });
@@ -69,7 +69,7 @@
         }
 
         else{
-          database.ref('users/heartRate' + date_time).set({
+          database.ref('billwill/heartRate/' + date_time).set({
           day: dayVal,
           heartRate: rateVal
           });
