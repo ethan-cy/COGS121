@@ -7,6 +7,9 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -26,6 +29,60 @@
         };
     // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+
+        const txtEmail. = document.getElementByID('txtEmail');
+        const txtPassword = document.getElemtnById('txtPassword');
+        const btnLogin = document.getElementByID('btnLogin');
+        const btnSignup = document.getElemtnById('btnSignup');
+        const btnLogout = document.getElemtnById('btnLogout');
+
+        //sign in
+        btnLogin.addEventListener('click', e => {
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+        promise.catch(e => console.log(e.message));
+        });
+
+        //sign out
+        btnLogout.addEventListener('click', e => {
+          firebase.auth()signOut();
+        });
+
+        //sign up
+        btnSignUp.addEventListener('click', e => {
+          //check that its a real email
+          const email = txtEmail.value;
+          const pass = txtPassword.value;
+          const auth = firebase.auth();
+
+          //sign in
+          const promise = auth.createUserWithEmailAndPassword(email, pass);
+          promise.catch(e => console.log(e.message));
+
+          firebase.auth().onAuthStateChanged(firebaseUser => {
+            if(firebaseUser) {
+              console.log(firebaseUser);
+            } else {
+              console.log('not logged in');
+            }
+          })
+
+          //add a realtime addEventListener
+          firebase.auth().onAuthStateChanged(firebaseUser => {
+            if(firebaseUser) {
+              console.log(firebaseUser);
+              btnLogout.classList.remove('hide');
+            } else {
+              console.log('not logged in ');tnLogout.classList.add('hide');
+              b
+            }
+          })
+        })
+
+
     </script>
 
     <!------------------------------------------------------------------>
@@ -53,59 +110,18 @@
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
           <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
           <input type="submit" class="fadeIn fourth" value="Log In">
+          <a href = "SignUp.html"><input type="button" id ="btnSignUp" value = "Sign up"></input>
         </form>
 
-        <!-- Remind Passowrd -->
+        <!-- Remind Password -->
         <div id="formFooter">
           <a class="underlineHover" href="#">Forgot Password?</a>
         </div>
 
       </div>
     </div>
-<!--3
-    <form action="action_page.php">
-
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-3-->
     <!--<div class="row">-->
-  <!--1
-      <div class="card">
-<a href=""  size = "80">Sign up</a>
-<h2>Sign in</h2>
-    <div class="form-group">
-      <label font size = "40">Your Email</label>
-        <input name="" placeholder="Email" type="text" size = "20">
-    </div>
-    <div class="form-group">
-    	<a class="float-right" href="#">Forgot?</a>
-    	<label>Your password</label>
-        <input class="form-control" placeholder="******" type="password" size = "20">
-    </div>
-    <div class="form-group">
-    <div class="checkbox">
-      <label> <input type="checkbox"> Save password </label>
-    </div>
-    </div>
-    <div class="form-group">
-      <a href="main.html"  class = "btn btn-primary btn-block" >Login</a>
-    1-->
+
         <!--<button type="submit" class="btn btn-primary btn-block"> Login  </button>-->
       <!--2
     </div>
