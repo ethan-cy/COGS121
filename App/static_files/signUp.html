@@ -6,8 +6,9 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-    <!-----Firebase Import----------------------------------------------------------------------------->
+    <!---Firebase Import----------------------------------------------------------------------------->
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
+
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -59,11 +60,14 @@
 /*
 });
 */
+/*
         const btnLogin = document.getElementByID('btnLogin');
         const btnSignup = document.getElemtnById('btnSignup');
         const btnLogout = document.getElemtnById('btnLogout');
+        */
 
         //sign inc
+        /*
         btnLogin.addEventListener('click', e => {
         const email = txtEmail.value;
         const pass = txtPassword.value;
@@ -72,32 +76,41 @@
         const promise = auth.signInWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
         });
+*/
+
 
         //sign up
         $('#btnsignUp').click(() => {
 
-          const txtName = $('name').val();
-          const txtLogin = $('login').val();
-          const txtPassword = $('password').val();
-          const txtAge = $('age').val();
-          const txtBloodType = $('bloodType').val();
-          const txtHeight = $('height').val();
-          const txtWeight = $('weight').val();
+          database.ref('billwill2/accountInfo').set({password: 'password', email: 'test@gmail.com', age: '55', bloodType: 'AB+', height: "190 cm", name: "Bill Larson", weight: "155"});
+          database.ref('billwill2/heartRate/2019-05-1T12:10').set({day: "Friday", heartRate: "77;"});
+          database.ref('billwill2/heartRate/2019-05-1T15:10').set({day: "Friday", heartRate: "88;"});
+          database.ref('billwill2/heartRate/2019-05-1T18:20').set({day: "Friday", heartRate: "89;"});
+          database.ref('billwill2/prescriptions/mucinexdm').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
+          database.ref('billwill2/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
 
 
+          const txtName = $('#name').val();
+          const txtLogin = $('#login').val();
+          const txtPassword = $('#password').val();
+          const txtAge = $('#age').val();
+          const txtBloodType = $('#bloodType').val();
+          const txtHeight = $('#height').val();
+          const txtWeight = $('#weight').val();
+
+          database.ref(txtLogin+'accountInfo').set({
+            age: txtAge,
+            bloodType: txtBloodType,
+            email: txtLogin,
+            password: txtPassword,
+            height: txtHeight,
+            weight: txtWeight,
+            name: txtName
+          });
         });
 
 
-        database.ref(txtLogin/'accountInfo').set({
-          age: txtAge,
-          bloodType: txtBloodType,
-          email: txtLogin,
-          password: txtPassword,
-          height: txtHeight,
-          weight: txtWeight,
-          name: txtName
 
-        });
         /*
         btnSignUp.addEventListener('click', e => {
           //check that its a real email
@@ -130,7 +143,7 @@
         })
         */
 
-)};
+});
     </script>
 
 </head>
