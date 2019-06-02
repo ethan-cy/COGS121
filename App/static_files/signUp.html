@@ -4,39 +4,66 @@
     <link rel="stylesheet" type="text/css" href="SignUp.css">
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
-
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-    <script src="jquery-3.4.0.min.js"></script>
-
+    <!-----Firebase Import----------------------------------------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
     <script>
-    // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
         var firebaseConfig = {
-        apiKey: "AIzaSyD1AmgEsoFJzEU4QpwErkC3hB4tZ3PfJDw",
-        authDomain: "cogs121-e90a1.firebaseapp.com",
-        databaseURL: "https://cogs121-e90a1.firebaseio.com",
-        projectId: "cogs121-e90a1",
-        storageBucket: "cogs121-e90a1.appspot.com",
-        messagingSenderId: "147712780983",
-        appId: "1:147712780983:web:60d08250c06d5322"
+          apiKey: "AIzaSyCyf_3tHbbSzWTiFuFRrfNmkZhn9c98jTQ",
+          authDomain: "cogs121hr.firebaseapp.com",
+          databaseURL: "https://cogs121hr.firebaseio.com",
+          projectId: "cogs121hr",
+          storageBucket: "cogs121hr.appspot.com",
+          messagingSenderId: "883559976095",
+          appId: "1:883559976095:web:3ec9b0a18bb26941"
         };
-    // Initialize Firebase
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+    </script>
+  <!--------------------------------------------------------------------------------------------------->
 
-        const txtEmail. = document.getElementByID('txtEmail');
-        const txtPassword = document.getElemtnById('txtPassword');
+
+        <script src="jquery-3.4.0.min.js"></script>
+
+        <script type = "text/javascript">
+        $(document).ready(() =>{
+          const database = firebase.database();
+/*
+        const signupForm = document.querySelector('#signup-Form');
+        signupForm.addEventListener('submit', (e) => {
+          e.precentDefault();
+
+          const txtName = signupForm['name'].value;
+          const txtLogin = signupForm['login'].value;
+          const txtPassword = signupForm['password'].value;
+          const txtAge = signupForm['age'].value;
+          const txtBloodType = signupForm['bloodType'].value;
+          const txtHeight = signupForm['height'].value;
+          const txtWeight = signupForm['weight'].value;
+
+          console.log(txtName, txtLogin);
+*/
+
+
+/**
+<input type="text" id="name" class="fadeIn third" name="name" placeholder="name" required>
+<input type="text" id="login" class="fadeIn second" name="login" placeholder="email" required>
+<input type="text" id="password" class="fadeIn third" name="password" placeholder="password" required>
+<input type="text" id="age" class="fadeIn third" name="age" placeholder="age" required>
+<input type="text" id="bloodType" class="fadeIn third" name="bloodType" placeholder="blood type" required>
+<input type="text" id="height" class="fadeIn third" name="height" placeholder="height" required>
+<input type="text" id="weight" class="fadeIn third" n
+-->**/
+/*
+});
+*/
         const btnLogin = document.getElementByID('btnLogin');
         const btnSignup = document.getElemtnById('btnSignup');
         const btnLogout = document.getElemtnById('btnLogout');
 
-        //sign in
+        //sign inc
         btnLogin.addEventListener('click', e => {
         const email = txtEmail.value;
         const pass = txtPassword.value;
@@ -46,12 +73,32 @@
         promise.catch(e => console.log(e.message));
         });
 
-        //sign out
-        btnLogout.addEventListener('click', e => {
-          firebase.auth()signOut();
+        //sign up
+        $('#btnsignUp').click(() => {
+
+          const txtName = $('name').val();
+          const txtLogin = $('login').val();
+          const txtPassword = $('password').val();
+          const txtAge = $('age').val();
+          const txtBloodType = $('bloodType').val();
+          const txtHeight = $('height').val();
+          const txtWeight = $('weight').val();
+
+
         });
 
-        //sign up
+
+        database.ref(txtLogin/'accountInfo').set({
+          age: txtAge,
+          bloodType: txtBloodType,
+          email: txtLogin,
+          password: txtPassword,
+          height: txtHeight,
+          weight: txtWeight,
+          name: txtName
+
+        });
+        /*
         btnSignUp.addEventListener('click', e => {
           //check that its a real email
           const email = txtEmail.value;
@@ -81,15 +128,10 @@
             }
           })
         })
+        */
 
-
+)};
     </script>
-
-    <!------------------------------------------------------------------>
-    <script type="text/javascript">
-
-    </script>
-    <!------------------------------------------------------------------>
 
 </head>
 <body>
@@ -101,17 +143,16 @@
 
 
         <!-- Login Form -->
-        <form>
-          <input type="text" id="name" class="fadeIn third" name="name" placeholder="name">
-          <input type="text" id="login" class="fadeIn second" name="login" placeholder="email">
-          <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-          <input type="text" id="age" class="fadeIn third" name="age" placeholder="age">
-          <input type="text" id="bloodType" class="fadeIn third" name="bloodType" placeholder="blood type">
-          <input type="text" id="height" class="fadeIn third" name="height" placeholder="height">
-          <input type="text" id="weight" class="fadeIn third" name="weight" placeholder="weight">
+        <form id = "signup-Form">
+          <input type="text" id="name" class="fadeIn third" name="name" placeholder="name" required>
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="email" required>
+          <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" required>
+          <input type="text" id="age" class="fadeIn third" name="age" placeholder="age" required>
+          <input type="text" id="bloodType" class="fadeIn third" name="bloodType" placeholder="blood type" required>
+          <input type="text" id="height" class="fadeIn third" name="height" placeholder="height" required>
+          <input type="text" id="weight" class="fadeIn third" name="weight" placeholder="weight" required>
 
-
-          <a href = "main.html"><input type="button" id ="btnSignUp" value = "Save" ></input>
+          <input type="button" id ="btnSignUp" value = "Save"></input>
         </form>
 
         <!-- Remind Password -->
