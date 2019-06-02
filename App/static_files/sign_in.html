@@ -4,92 +4,61 @@
     <link rel="stylesheet" type="text/css" href="sign_in.css">
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
-
-    <script src="jquery-3.4.0.min.js"></script>
-
+    <!---Firebase Import----------------------------------------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script> 
     <script>
-    // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
         var firebaseConfig = {
-        apiKey: "AIzaSyD1AmgEsoFJzEU4QpwErkC3hB4tZ3PfJDw",
-        authDomain: "cogs121-e90a1.firebaseapp.com",
-        databaseURL: "https://cogs121-e90a1.firebaseio.com",
-        projectId: "cogs121-e90a1",
-        storageBucket: "cogs121-e90a1.appspot.com",
-        messagingSenderId: "147712780983",
-        appId: "1:147712780983:web:60d08250c06d5322"
+          apiKey: "AIzaSyCyf_3tHbbSzWTiFuFRrfNmkZhn9c98jTQ",
+          authDomain: "cogs121hr.firebaseapp.com",
+          databaseURL: "https://cogs121hr.firebaseio.com",
+          projectId: "cogs121hr",
+          storageBucket: "cogs121hr.appspot.com",
+          messagingSenderId: "883559976095",
+          appId: "1:883559976095:web:3ec9b0a18bb26941"
         };
-    // Initialize Firebase
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-
-        const txtEmail. = document.getElementByID('txtEmail');
-        const txtPassword = document.getElemtnById('txtPassword');
-        const btnLogin = document.getElementByID('btnLogin');
-        const btnSignup = document.getElemtnById('btnSignup');
-        const btnLogout = document.getElemtnById('btnLogout');
-
-        //sign in
-        btnLogin.addEventListener('click', e => {
-        const email = txtEmail.value;
-        const pass = txtPassword.value;
-        const auth = firebase.auth();
-
-        const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
-        });
-
-        //sign out
-        btnLogout.addEventListener('click', e => {
-          firebase.auth()signOut();
-        });
-
-        //sign up
-        btnSignUp.addEventListener('click', e => {
-          //check that its a real email
-          const email = txtEmail.value;
-          const pass = txtPassword.value;
-          const auth = firebase.auth();
-
-          //sign in
-          const promise = auth.createUserWithEmailAndPassword(email, pass);
-          promise.catch(e => console.log(e.message));
-
-          firebase.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser) {
-              console.log(firebaseUser);
-            } else {
-              console.log('not logged in');
-            }
-          })
-
-          //add a realtime addEventListener
-          firebase.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser) {
-              console.log(firebaseUser);
-              btnLogout.classList.remove('hide');
-            } else {
-              console.log('not logged in ');tnLogout.classList.add('hide');
-              b
-            }
-          })
-        })
-
-
     </script>
+  <!--------------------------------------------------------------------------------------------------->
 
-    <!------------------------------------------------------------------>
-    <script type="text/javascript">
+  <script src="jquery-3.4.0.min.js"></script>
+  <script type = "text/javascript">
+  $(document).ready(() =>{
+    $('#loginBtn').click(() => {
+        const database = firebase.database();
+        const userName = $('#login').val();
+        const passWord = $('#password').val();
 
-    </script>
-    <!------------------------------------------------------------------>
+        
+          console.log("here");
+          database.ref().once('value', (snapshot) => {
+            console.log("here2");
+            const list = snapshot.val();
+            for (var key in list){
+              console.log(userName + " " + key);
+              if (userName == key && passWord == list[key].accountInfo.password){
+                console.log("true");
+              }
+              else{
+                alert("Login info does not exist.")
+              }
+            }
+          });
+      });
+  });
+
+  </script>
+
 
 </head>
 <body>
@@ -109,9 +78,11 @@
         <form>
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
           <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-          <input type="submit" class="fadeIn fourth" value="Log In">
+          <!-- <input type="submit" class="fadeIn fourth" value="Log In" id="loginBtn"> -->
+          <button id="loginBtn" class="input2">Log In</button>
           <a href = "SignUp.html"><input type="button" id ="btnSignUp" value = "Sign up"></input>
         </form>
+
 
         <!-- Remind Password -->
         <div id="formFooter">
