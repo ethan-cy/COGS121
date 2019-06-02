@@ -35,7 +35,7 @@
       const database = firebase.database();
         //////////////////////////Graph//////////////////////////
         window.onload = function () {
-          database.ref('users').once('value', (snapshot) => {
+          database.ref('billwill/heartRate').once('value', (snapshot) => {
             const data = snapshot.val();
             var chart = new CanvasJS.Chart("chartContainer");
 

@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
     <!---Firebase Import----------------------------------------------------------------------------->
-    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script> 
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -26,125 +25,42 @@
   <!--------------------------------------------------------------------------------------------------->
 
 
-        <script src="jquery-3.4.0.min.js"></script>
+    <script src="jquery-3.4.0.min.js"></script>
+    <script type = "text/javascript">
 
-        <script type = "text/javascript">
-        $(document).ready(() =>{
-          const database = firebase.database();
-/*
-        const signupForm = document.querySelector('#signup-Form');
-        signupForm.addEventListener('submit', (e) => {
-          e.precentDefault();
-
-          const txtName = signupForm['name'].value;
-          const txtLogin = signupForm['login'].value;
-          const txtPassword = signupForm['password'].value;
-          const txtAge = signupForm['age'].value;
-          const txtBloodType = signupForm['bloodType'].value;
-          const txtHeight = signupForm['height'].value;
-          const txtWeight = signupForm['weight'].value;
-
-          console.log(txtName, txtLogin);
-*/
+    $(document).ready(() =>{
+      const database = firebase.database();
+      //sign up
+      $('#btnSignUp').click(() => {
+        console.log("here");
+        database.ref('billwill2/accountInfo').set({password: 'password', email: 'test@gmail.com', age: '55', bloodType: 'AB+', height: "190 cm", name: "Bill Larson", weight: "155"});
+        database.ref('billwill2/heartRate/2019-05-1T12:10').set({day: "Friday", heartRate: "77;"});
+        database.ref('billwill2/heartRate/2019-05-1T15:10').set({day: "Friday", heartRate: "88;"});
+        database.ref('billwill2/heartRate/2019-05-1T18:20').set({day: "Friday", heartRate: "89;"});
+        database.ref('billwill2/prescriptions/mucinexdm').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
+        database.ref('billwill2/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
 
 
-/**
-<input type="text" id="name" class="fadeIn third" name="name" placeholder="name" required>
-<input type="text" id="login" class="fadeIn second" name="login" placeholder="email" required>
-<input type="text" id="password" class="fadeIn third" name="password" placeholder="password" required>
-<input type="text" id="age" class="fadeIn third" name="age" placeholder="age" required>
-<input type="text" id="bloodType" class="fadeIn third" name="bloodType" placeholder="blood type" required>
-<input type="text" id="height" class="fadeIn third" name="height" placeholder="height" required>
-<input type="text" id="weight" class="fadeIn third" n
--->**/
-/*
-});
-*/
-/*
-        const btnLogin = document.getElementByID('btnLogin');
-        const btnSignup = document.getElemtnById('btnSignup');
-        const btnLogout = document.getElemtnById('btnLogout');
-        */
+        const txtName = $('#name').val();
+        const txtLogin = $('#login').val();
+        const txtPassword = $('#password').val();
+        const txtAge = $('#age').val();
+        const txtBloodType = $('#bloodType').val();
+        const txtHeight = $('#height').val();
+        const txtWeight = $('#weight').val();
 
-        //sign inc
-        /*
-        btnLogin.addEventListener('click', e => {
-        const email = txtEmail.value;
-        const pass = txtPassword.value;
-        const auth = firebase.auth();
-
-        const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
-        });
-*/
-
-
-        //sign up
-        $('#btnsignUp').click(() => {
-
-          database.ref('billwill2/accountInfo').set({password: 'password', email: 'test@gmail.com', age: '55', bloodType: 'AB+', height: "190 cm", name: "Bill Larson", weight: "155"});
-          database.ref('billwill2/heartRate/2019-05-1T12:10').set({day: "Friday", heartRate: "77;"});
-          database.ref('billwill2/heartRate/2019-05-1T15:10').set({day: "Friday", heartRate: "88;"});
-          database.ref('billwill2/heartRate/2019-05-1T18:20').set({day: "Friday", heartRate: "89;"});
-          database.ref('billwill2/prescriptions/mucinexdm').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
-          database.ref('billwill2/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
-
-
-          const txtName = $('#name').val();
-          const txtLogin = $('#login').val();
-          const txtPassword = $('#password').val();
-          const txtAge = $('#age').val();
-          const txtBloodType = $('#bloodType').val();
-          const txtHeight = $('#height').val();
-          const txtWeight = $('#weight').val();
-
-          database.ref(txtLogin+'accountInfo').set({
-            age: txtAge,
-            bloodType: txtBloodType,
-            email: txtLogin,
-            password: txtPassword,
-            height: txtHeight,
-            weight: txtWeight,
-            name: txtName
+        database.ref(txtLogin + "/accountInfo").set({
+          age: txtAge,
+          bloodType: txtBloodType,
+          email: txtLogin,
+          password: txtPassword,
+          height: txtHeight,
+          weight: txtWeight,
+          name: txtName
           });
         });
-
-
-
-        /*
-        btnSignUp.addEventListener('click', e => {
-          //check that its a real email
-          const email = txtEmail.value;
-          const pass = txtPassword.value;
-          const auth = firebase.auth();
-
-          //sign in
-          const promise = auth.createUserWithEmailAndPassword(email, pass);
-          promise.catch(e => console.log(e.message));
-
-          firebase.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser) {
-              console.log(firebaseUser);
-            } else {
-              console.log('not logged in');
-            }
-          })
-
-          //add a realtime addEventListener
-          firebase.auth().onAuthStateChanged(firebaseUser => {
-            if(firebaseUser) {
-              console.log(firebaseUser);
-              btnLogout.classList.remove('hide');
-            } else {
-              console.log('not logged in ');tnLogout.classList.add('hide');
-              b
-            }
-          })
-        })
-        */
-
-});
-    </script>
+      }); 
+</script>
 
 </head>
 <body>
