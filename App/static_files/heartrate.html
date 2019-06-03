@@ -1,3 +1,4 @@
+<!--This page helps the user to track the heart rate for different time and collect all the data and show in a graph.-->
 <html>
 <head>
     <title>MedicineApp</title>
@@ -46,9 +47,10 @@
     //   database.ref('billwill/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
     // });
 
+        // key for firebase
       const name = window.localStorage.getItem('uName');
 
-
+        // save the time and heart rate
       $('#setButton').click(() => {
         const date_time = $('#dateTime').val();
         const dayVal = $('#DayBox').val();
@@ -70,6 +72,7 @@
           alert("Please Enter a Valid Day.");
         }
 
+          // save bpm and time to firebase
         else{
           database.ref(name + '/heartRate/' + date_time).set({
           day: dayVal,

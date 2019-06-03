@@ -1,3 +1,6 @@
+<!-- The page lets the user to search for a common type of drug and pull up the usage information, pregnancy warning, and
+other risks when taking the drug  -->
+
 <html>
 <head>
     <title>MedicineApp</title>
@@ -28,6 +31,7 @@
     <!-----Javascript Code------------------------------------------------------------------------------->
     <script src="jquery-3.4.0.min.js"></script>
 
+    <!--This gets the drug info from firebase-->
     <script type="text/javascript">
     $(document).ready(() => {
         const database = firebase.database();
@@ -36,11 +40,15 @@
             database.ref(key).once('value', (snapshot) => {
                 const data = snapshot.val();
                 console.log(data);
+                
+                // check if data is null
                 if (!data){
                     $('#IndicDiv').html('<span style="font-size: 60px">Please enter a valid name.</span>');
                     $('#PregDiv').html('');
                     $('#WarnDiv').html('');
                 }
+                
+                // alert message for not finding any usage or warning. else show the information
                 if (!data.indications_and_usage){
                     $('#IndicDiv').html('Cannot find indication data.');
                 } else{

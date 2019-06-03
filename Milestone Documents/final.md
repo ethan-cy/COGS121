@@ -50,7 +50,9 @@ main.css
 - arranges the four images in a grid 
 
 account.html
+- Shows the user's info and user can update it.
 account.css
+- arrange the size of label and input box.
 
 drugdosage.html
 - Allows users to upload new prescription medicines. The medicines are stored under the user's account, which are stored im a database. 

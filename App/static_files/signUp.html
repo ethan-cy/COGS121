@@ -1,3 +1,4 @@
+<!-----User can create account through this page and ask for name, username, password, age, height and weight.----------------------------------------------------------------------------->
 <html>
 <head>
     <title>MedicineApp</title>
@@ -30,7 +31,7 @@
 
     $(document).ready(() =>{
       const database = firebase.database();
-      //sign up
+      //save the info on firbase for sign up
       $('#btnSignUp').click(() => {
 
 
@@ -42,6 +43,7 @@
         const txtHeight = $('#height').val();
         const txtWeight = $('#weight').val();
 
+          // alert message for missing info
         if (txtName == null || txtName == ""
         || txtUsername == null || txtUsername == ""
         || txtPassword == null || txtPassword == ""
@@ -51,7 +53,8 @@
         || txtWeight == null || txtWeight == ""){
           alert("Please complete your infomation.");
         }
-
+        
+          // save info
         else{
           database.ref(txtUsername + "/accountInfo").set({
           age: txtAge,
