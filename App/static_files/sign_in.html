@@ -39,20 +39,21 @@
         
         const userName = $('#login').val();
         const passWord = $('#password').val();
-
+          console.log(userName);
+          console.log(passWord);
         
           console.log("here");
-          database.ref().once('value', (snapshot) => {
+          database.ref(userName + "/accountInfo").once('value', (snapshot) => {
             console.log("here2");
             const list = snapshot.val();
-            for (var key in list){
-              console.log(userName + " " + key);
-              if (userName == key && passWord == list[key].accountInfo.password){
-                console.log("true");
-              }
-              else{
-                alert("Login info does not exist.")
-              }
+            if (list == null){
+              alert("Login info does not exist.");
+            }
+            if (passWord == list[password]){
+              console.log("true");
+            }
+            else{
+              alert("Incorrect Password.");
             }
           });
       });
