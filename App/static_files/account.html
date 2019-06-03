@@ -36,12 +36,17 @@ change the info.-->
 
     <script type="text/javascript">
         $(document).ready(() => {
+            // init database
             const database = firebase.database();
+            
+            // use the username as the key
             const name = window.localStorage.getItem('uName');
             var currUser = name; //FILL  IN
             const key = currUser + '/accountInfo';
             let p_username;
             let p_password;
+            
+            // gets the user's info
             database.ref(key).once('value', (snapshot) => {
                 const info = snapshot.val();
                 if(info == null){
@@ -59,7 +64,7 @@ change the info.-->
 
             
             
-
+            // update info and store it in firebase
             $('#updateInfoButton').click(() => {
                 console.log($('#age').val());
                 database.ref(currUser + '/accountInfo').set({
