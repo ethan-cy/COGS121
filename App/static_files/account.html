@@ -7,7 +7,7 @@
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -15,15 +15,15 @@
     <script>
     // Your web app's Firebase configuration
         var firebaseConfig = {
-        apiKey: "AIzaSyD1AmgEsoFJzEU4QpwErkC3hB4tZ3PfJDw",
-        authDomain: "cogs121-e90a1.firebaseapp.com",
-        databaseURL: "https://cogs121-e90a1.firebaseio.com",
-        projectId: "cogs121-e90a1",
-        storageBucket: "cogs121-e90a1.appspot.com",
-        messagingSenderId: "147712780983",
-        appId: "1:147712780983:web:60d08250c06d5322"
+            apiKey: "AIzaSyCyf_3tHbbSzWTiFuFRrfNmkZhn9c98jTQ",
+            authDomain: "cogs121hr.firebaseapp.com",
+            databaseURL: "https://cogs121hr.firebaseio.com",
+            projectId: "cogs121hr",
+            storageBucket: "cogs121hr.appspot.com",
+            messagingSenderId: "883559976095",
+            appId: "1:883559976095:web:3ec9b0a18bb26941"
         };
-    // Initialize Firebase
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
 
@@ -33,25 +33,64 @@
     <script type="text/javascript">
     //Javascript code
     </script>
+
+
     <script type="text/javascript">
-    $(document).ready(() => {
-        const database = firebase.database();
-        $('#updateInfoButton').click(() => {
-            database.ref.set({
-                name: $('#name').val(),
-                age: $('#age').val()
+        $(document).ready(() => {
+            const database = firebase.database();
+            var currUser = "billwill"; //FILL  IN
+            const key = currUser + '/accountInfo';
+            let p_username;
+            let p_password;
+            database.ref(key).once('value', (snapshot) => {
+                const info = snapshot.val();
+                if(info == null){
+                    $('#msgBox').html('No valid Info.');
+                }
+                console.log(info);
+                $('#name').val(info.name);
+                $('#age').val(info.age);
+                $('#height').val(info.height);
+                $('#weight').val(info.weight);
+                $('#blood').val(info.bloodType);
+                $('#user_name').val(info.username);
+                p_password = info.password;
             });
+
+            
+            
+
+            $('#updateInfoButton').click(() => {
+                console.log($('#age').val());
+                database.ref(currUser + '/accountInfo').set({
+                    age: $('#age').val(),
+                    name: $('#name').val(),
+                    height: $('#height').val(),
+                    weight: $('#weight').val(),
+                    bloodType: $('#blood').val(),
+                    username:  $('#user_name').val(),
+                    password: p_password
+                });
+            });
+            
         });
     </script>
 </head>
 <body>
     <h1>My Account</h1>
-    <img src="./icons/profilepic.png" alt="profile picture">
     <ul>
-      <li>Name: </li>
+      <label for="name">Name:</label>
       <input type="text" class="input" name="Name" id="name">
-      <li>Age: </li>
+      <label for="userName">UserName:</label>
+      <input type="text" class="input" name="Username" id="user_name">
+      <label for="age">Ages:</label>
       <input type="text" class="input" name="Age" id="age">
+      <label for="height">Height(cm):</label>
+      <input type="text" class="input" name="Height" id="height">
+      <label for="weight">Weight(kg):</label>
+      <input type="text" class="input" name="Weight" id="weight">
+      <label for="blood">Blood:</label>
+      <input type="text" class="input" name="Blood" id="blood">
     </ul>
     <div class="wrapper">
         <button id="updateInfoButton" class="input2">Submit</button>
