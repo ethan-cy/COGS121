@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  margin-bottom: 10px;
   background-color: #d90130;
   font-family: 'Gugi';
   background-image: linear-gradient(to bottom right, rgb(0, 174, 255) , rgb(38, 207, 193));
@@ -33,7 +34,10 @@ h1 {
 .wrapper{
   margin-top: 50px;
   text-align: center;
+
 }
+
+
 button {
     font-size: 50px;
     background-color: grey;
@@ -43,6 +47,7 @@ button {
     margin:auto;
       text-shadow: 1px 1px black;
       border: 20px;
+    margin-bottom: 50px;
   }
 
 img {
@@ -74,7 +79,9 @@ img {
 li{
   font-size: 50px;
 }
-
+label{
+  font-size: 60px;
+}
 img{
   display: block;
   margin-left: auto;
