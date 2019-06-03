@@ -33,9 +33,10 @@
     <script type="text/javascript">
     $(document).ready(() =>{
       const database = firebase.database();
+      const name = window.localStorage.getItem('uName');
         //////////////////////////Graph//////////////////////////
         window.onload = function () {
-          database.ref('billwill/heartRate').once('value', (snapshot) => {
+          database.ref(name + '/heartRate').once('value', (snapshot) => {
             const data = snapshot.val();
             var chart = new CanvasJS.Chart("chartContainer");
 
