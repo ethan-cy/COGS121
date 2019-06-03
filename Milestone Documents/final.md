@@ -17,5 +17,12 @@ Allows the user to input fields including: name, username, password, bloodtype, 
 signUp.css
 stylesheet for signUp.css, uses similar bootstrap components
 
+main.html
+Main page hosts four links: link to prescription, drug information, heart rate, and account
+main.css
+arranges the four images in a grid 
+
+
+
 
 
