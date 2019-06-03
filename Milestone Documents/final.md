@@ -1,2 +1,21 @@
 Slide:
 https://docs.google.com/presentation/d/1P5VnUzFmHzR8pWtYzaMfLaW0m5xcHedyxUkTcv_fDOk/edit?usp=sharing
+
+Ethan Cai
+Austin Nim
+Marco Choi
+Do Hyun Kim
+
+
+sign_in.html
+Allows the user to sign in with an existing account, or the option to create a new account
+sign_in.css
+stylesheet for sign_in.html, uses bootstrap login component and input fields
+
+signUp.html
+Allows the user to input fields including: name, username, password, bloodtype, age, height, and weight
+signUp.css
+stylesheet for signUp.css, uses similar bootstrap components
+
+
+

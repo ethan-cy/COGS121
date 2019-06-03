@@ -7,8 +7,6 @@
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
 
     <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
@@ -39,19 +37,23 @@
         
         const userName = $('#login').val();
         const passWord = $('#password').val();
-
+          console.log(userName);
+          console.log(passWord);
         
           console.log("here");
-          database.ref().once('value', (snapshot) => {
+          database.ref(userName + "/accountInfo").once('value', (snapshot) => {
             console.log("here2");
             const list = snapshot.val();
-            for (var key in list){
-              console.log(userName + " " + key);
-              if (userName == key && passWord == list[key].accountInfo.password){
+            if (list == null){
+              alert("Login info does not exist.");
+            }
+            else{
+              if (passWord == list.password){
                 console.log("true");
+                window.location.pathname = '/main.html';
               }
               else{
-                alert("Login info does not exist.")
+                alert("Incorrect Password.");
               }
             }
           });
@@ -68,23 +70,28 @@
     <div class="wrapper fadeInDown">
       <div id="formContent" style = "float:left">
         <!-- Tabs Titles -->
-
+        <br>
         <!-- Icon -->
         <div class="fadeIn first">
           <img src="icons/user.png" id="icon" alt="User Icon" />
 
         </div>
 
+        <br4>
+
         <!-- Login Form -->
         <form>
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
           <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+          <br2>
           <!-- <input type="submit" class="fadeIn fourth" value="Log In" id="loginBtn"> -->
-          <button id="loginBtn" class="input2">Log In</button>
+          <!-- <button id="loginBtn" class="input2">Log In</button> -->
+          <input type="button" id ="loginBtn" value = "Log In"></input>
           <a href = "SignUp.html"><input type="button" id ="btnSignUp" value = "Sign up"></input>
         </form>
 
 
+        <br3>
         <!-- Remind Password -->
         <div id="formFooter">
           <a class="underlineHover" href="#">Forgot Password?</a>
@@ -92,16 +99,5 @@
 
       </div>
     </div>
-    <!--<div class="row">-->
-
-        <!--<button type="submit" class="btn btn-primary btn-block"> Login  </button>-->
-      <!--2
-    </div>
-</article>
-</div>
--->
-<!--</div>-->
-
-    <!-- Username: <input id= "nameBox" type = "text" size = "20"/> -->
 </body>
 </html>
