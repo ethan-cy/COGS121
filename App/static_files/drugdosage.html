@@ -44,8 +44,8 @@
       database.ref('billwill/heartRate/2019-05-1T12:10').set({day: "Friday", heartRate: "77;"});
       database.ref('billwill/heartRate/2019-05-1T15:10').set({day: "Friday", heartRate: "88;"});
       database.ref('billwill/heartRate/2019-05-1T18:20').set({day: "Friday", heartRate: "89;"});
-      database.ref('billwill/prescriptions/mucinexdm').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
-      database.ref('billwill/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
+      database.ref('billwill/prescriptions/mucinexdm').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!", expDate: "2018-01-03"});
+      database.ref('billwill/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!", expDate: "2017-01-03"});
     });
 
     $('#drugHistoryBtn').click(() => {
@@ -67,12 +67,13 @@
       const doseHrBox = $('#doseHrBox').val();
       const doseMinBox = $('#doseMinBox').val();
       const note = $('#doseNoteBox').val();
+      const end = $('#doseEndBox').val();
 
       const time = doseHrBox + "Hr(s) " + doseMinBox + "Min(s)" ;
       console.log("name: " + name  + " | dose: " + dosage);
 
 
-      if ( name == "" ||  dosage == "" ||  ( doseHrBox == "" && doseMinBox == "")){
+      if ( name == "" ||  dosage == "" || ( doseHrBox == "" && doseMinBox == "")){
         alert("Please Enter All Necessary Information.");
       }
       else
@@ -84,7 +85,8 @@
           drugName: name,
           recDose: dosage,
           consumptionTime: time,
-          notes: note
+          notes: note,
+          expDate: end
         });
       }
     });
@@ -124,10 +126,14 @@
     <label>Special note: </label>
     <input id="doseNoteBox" type="text" placeholder="Take after eating breakfast!"/>
     <br>
+    <label>Expiration Date: </label>
+    <input type="date" id="doseEndBox" name="trip-start"
+          value="2019-04-20"
+          min="2018-01-01" max="2030-12-31">
   </form>
-    <button id="uploadInfoButton" class="input2">Upload</button>
+  <button id="uploadInfoButton" >Save Info</button>
 
-  <!--<button id="resetButton">Reset DB</button>-->
+  <button id="resetButton">Reset DB</button>
 
   <footer id="navbar">
     <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>

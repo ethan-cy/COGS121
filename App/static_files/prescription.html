@@ -28,11 +28,26 @@
     const database = firebase.database();
     var currUser = "billwill"; //FILL  IN
     $('#getInfoButton').click(() => {
+      console.log("input value = " + $('#userPrescriptions').val());
+      if($('#userPrescriptions').val() == ""){
+        alert("Please choose an appropriate selection!");
+      }
       const key = currUser + '/prescriptions/'+ $('#userPrescriptions').val();
       database.ref(key).once('value', (snapshot) => {
         const drug = snapshot.val();
         if(drug == null){
             $('#msgBox').html('Please enter a valid name.');
+        }
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        console.log("today = " + today);
+        console.log("exp date = " + drug.expDate);
+        if(drug.expDate < today){
+          $('#expiredPrescription').html('Your current prescription is expired please update!');
+                    $('#updatePill').show();
         }
         console.log(drug);
         $('#drugName').html('Name: ' + drug.drugName);
@@ -54,6 +69,51 @@
         selectTag.options[selectTag.options.length] = new Option(key, key.drugName);
       }
     });
+
+    $('#updatePill').click(() => {
+      $('#updateDrugInfo').show();
+      $('#uploadInfoButton').show()
+      $('#updatePill').hide();
+      var url = currUser + '/prescriptions/' + $('#userPrescriptions').value();
+      database.ref(url).once('value', (snapshot) => {
+        var info = snapshot.val();
+        $('#drugNameBox').val() = info.drugName;
+        $('#doseRecBox').val() = info.recDoe;
+        $('#doseHrBox').val() = info.consumptionTime;
+        $('#doseMinBox').val() = info.consumptionTime;
+        $('#doseNoteBox').val() = info.notes;
+        $('#doseEndBox').val() = info.expDate;
+      })
+    });
+
+    $('uploadInfoButton').click(() => {
+      const name = $('#drugNameBox').val().toLowerCase();
+      const dosage = $('#doseRecBox').val();
+      const doseHrBox = $('#doseHrBox').val();
+      const doseMinBox = $('#doseMinBox').val();
+      const note = $('#doseNoteBox').val();
+      const end = $('#doseEndBox').val();
+
+      const time = doseHrBox + "Hr(s) " + doseMinBox + "Min(s)" ;
+      console.log("name: " + name  + " | dose: " + dosage);
+
+
+      if ( name == "" ||  dosage == "" || ( doseHrBox == "" && doseMinBox == "")){
+        alert("Please Enter All Necessary Information.");
+      }
+      else
+      {
+        var url =  currUser + '/prescriptions/' + name;
+        console.log(url);
+        database.ref(url).set(
+        {
+          recDose: dosage,
+          consumptionTime: time,
+          notes: note,
+          expDate: end
+        });
+      }
+    });
   });
 
 </script>
@@ -67,7 +127,10 @@
           <option value="">--Please choose an option--</option>
     </select>
     <br>
-    <button id="getInfoButton" class="input2">Find Information</button>
+    <button id="getInfoButton">Find Information</button>
+
+  <div id="expiredPrescription">
+  </div>
 
   <div id="msgBox">
     <div id="drugName"></div>
@@ -75,6 +138,34 @@
     <div id="drugTime"></div>
     <div id="drugNote"></div>
   </div>
+
+  <button id="updatePill">Update Info</button>
+
+    <form id="updateDrugInfo">
+      <label>Drug Name: </label>
+      <input id="drugNameBox" type="text"/>
+      <br>
+      <label>Rec. Dosage: </label>
+      <input id="doseRecBox" type="text" />
+      <br>
+      <label>When: </label>
+      <br>
+      <label>&nbsp&nbsp&nbsp&nbsp Hours: </label>
+      <input id="doseHrBox" type="number" />
+          <br>
+      <label>&nbsp&nbsp&nbsp&nbsp Minutes: </label>
+      <input id="doseMinBox" type="text"/>
+
+          <br>
+      <label>Special note: </label>
+      <input id="doseNoteBox" type="text" />
+      <br>
+      <label>Expiration Date: </label>
+      <input type="date" id="doseEndBox" name="trip-start"
+            min="2018-01-01" max="2030-12-31">
+
+    </form>
+      <button id="uploadInfoButton" >Save Info</button>
 
   <footer id="navbar">
     <a href="./main.html" id="home"><img src="./icons/heartbeat.png" alt="heart rate icon"/><p>Home</p></a>
