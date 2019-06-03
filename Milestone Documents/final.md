@@ -1,9 +1,12 @@
 Slide:
 https://docs.google.com/presentation/d/1P5VnUzFmHzR8pWtYzaMfLaW0m5xcHedyxUkTcv_fDOk/edit?usp=sharing
 
-Ethan Cai
-Austin Nim
-Wan Hin Choi
+Demo:
+https://youtu.be/dLqjNnaIEAY
+
+Ethan Cai / 
+Austin Nim / 
+Wan Hin Choi / 
 Do Hyun Kim
 
 Ethan Cai -
