@@ -14,7 +14,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
     <!---Firebase Import----------------------------------------------------------------------------->
-    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -36,11 +36,11 @@
   $(document).ready(() =>{
     const database = firebase.database();
     $('#loginBtn').click(() => {
-        
+
         const userName = $('#login').val();
         const passWord = $('#password').val();
 
-        
+
           console.log("here");
           database.ref().once('value', (snapshot) => {
             console.log("here2");

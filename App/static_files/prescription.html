@@ -87,7 +87,6 @@
     });
 
     $('uploadInfoButton').click(() => {
-      const name = $('#drugNameBox').val().toLowerCase();
       const dosage = $('#doseRecBox').val();
       const doseHrBox = $('#doseHrBox').val();
       const doseMinBox = $('#doseMinBox').val();
@@ -95,15 +94,14 @@
       const end = $('#doseEndBox').val();
 
       const time = doseHrBox + "Hr(s) " + doseMinBox + "Min(s)" ;
-      console.log("name: " + name  + " | dose: " + dosage);
 
 
-      if ( name == "" ||  dosage == "" || ( doseHrBox == "" && doseMinBox == "")){
+      if ( dosage == "" || ( doseHrBox == "" && doseMinBox == "")){
         alert("Please Enter All Necessary Information.");
       }
       else
       {
-        var url =  currUser + '/prescriptions/' + name;
+  var url = currUser + '/prescriptions/' + $('#userPrescriptions').value();
         console.log(url);
         database.ref(url).set(
         {
