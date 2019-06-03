@@ -3,7 +3,7 @@ https://docs.google.com/presentation/d/1P5VnUzFmHzR8pWtYzaMfLaW0m5xcHedyxUkTcv_f
 
 Ethan Cai
 Austin Nim
-Wan He Choi
+Wan Hin Choi
 Do Hyun Kim
 
 Ethan Cai -
@@ -18,7 +18,7 @@ by entering a drug name, the reccomended dosage, the estimated time in between e
 and any special information needed with it. Using that inserted prescription, would be able to check that 
 information again in the app. Worked on the main philosophy behind the app and bugfixes.
 
-Marco Choi - 
+Wan Hin Choi - 
 Created the main UI setup for the application, making design choices of a main stage with four different 
 functions and including a main navigation bar at the bottom. Worked on the account page that would store 
 and display information on the user. If no user is logged in, the allows for input fields to take in and save data on the user's account.
