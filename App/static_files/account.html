@@ -6,26 +6,23 @@
     <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
 
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-----Firebase Import----------------------------------------------------------------------------->
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
     <script>
-    // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyCyf_3tHbbSzWTiFuFRrfNmkZhn9c98jTQ",
-            authDomain: "cogs121hr.firebaseapp.com",
-            databaseURL: "https://cogs121hr.firebaseio.com",
-            projectId: "cogs121hr",
-            storageBucket: "cogs121hr.appspot.com",
-            messagingSenderId: "883559976095",
-            appId: "1:883559976095:web:3ec9b0a18bb26941"
+          apiKey: "AIzaSyCyf_3tHbbSzWTiFuFRrfNmkZhn9c98jTQ",
+          authDomain: "cogs121hr.firebaseapp.com",
+          databaseURL: "https://cogs121hr.firebaseio.com",
+          projectId: "cogs121hr",
+          storageBucket: "cogs121hr.appspot.com",
+          messagingSenderId: "883559976095",
+          appId: "1:883559976095:web:3ec9b0a18bb26941"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
+  <!--------------------------------------------------------------------------------------------------->
 
 
     <script src="jquery-3.4.0.min.js"></script>
@@ -38,7 +35,8 @@
     <script type="text/javascript">
         $(document).ready(() => {
             const database = firebase.database();
-            var currUser = "billwill"; //FILL  IN
+            const name = window.localStorage.getItem('uName');
+            var currUser = name; //FILL  IN
             const key = currUser + '/accountInfo';
             let p_username;
             let p_password;

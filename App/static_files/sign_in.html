@@ -37,7 +37,7 @@
 
         const userName = $('#login').val();
         const passWord = $('#password').val();
-        window.localStorage.setItem('uName', userName);
+        
           console.log(userName);
           console.log(passWord);
         
@@ -51,6 +51,7 @@
             else{
               if (passWord == list.password){
                 console.log("true");
+                window.localStorage.setItem('uName', userName);
                 window.location.pathname = '/main.html';
               }
               else{
@@ -86,7 +87,7 @@
           <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
           <br2>
           <!-- <input type="submit" class="fadeIn fourth" value="Log In" id="loginBtn"> -->
-          <button id="loginBtn" class="input2">Log In</button>
+          <input type="button" id ="loginBtn" value = "Log In"></input>
           <a href = "signUp.html"><input type="button" id ="btnSignUp" value = "Sign up"></input>
         </form>
 

@@ -6,27 +6,31 @@
   <link rel="stylesheet" type="text/css" href="prescription.css">
   <!-- <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap" rel="stylesheet">
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
-  <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAwBNshPstMv4gkbTYYZxklVdUh6neHQnc",
-    authDomain: "cogs121doseinfo.firebaseapp.com",
-    databaseURL: "https://cogs121doseinfo.firebaseio.com",
-    projectId: "cogs121doseinfo",
-    storageBucket: "cogs121doseinfo.appspot.com",
-    messagingSenderId: "297528001615",
-    appId: "1:297528001615:web:b9c799c375583153"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  </script>
+
+
+<!-----Firebase Import----------------------------------------------------------------------------->
+<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCyf_3tHbbSzWTiFuFRrfNmkZhn9c98jTQ",
+      authDomain: "cogs121hr.firebaseapp.com",
+      databaseURL: "https://cogs121hr.firebaseio.com",
+      projectId: "cogs121hr",
+      storageBucket: "cogs121hr.appspot.com",
+      messagingSenderId: "883559976095",
+      appId: "1:883559976095:web:3ec9b0a18bb26941"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+<!--------------------------------------------------------------------------------------------------->
 
   <script type="text/javascript">
   $(document).ready(() => {
     const database = firebase.database();
-    var currUser = "billwill"; //FILL  IN
+    const name = window.localStorage.getItem('uName');
+    var currUser = name; //FILL  IN
     $('#getInfoButton').click(() => {
       console.log("input value = " + $('#userPrescriptions').val());
       if($('#userPrescriptions').val() == ""){
