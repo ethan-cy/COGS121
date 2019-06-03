@@ -3,7 +3,7 @@ https://docs.google.com/presentation/d/1P5VnUzFmHzR8pWtYzaMfLaW0m5xcHedyxUkTcv_f
 
 Ethan Cai
 Austin Nim
-Marco Choi
+Wan Hin Choi
 Do Hyun Kim
 
 
@@ -23,7 +23,9 @@ main.css
 - arranges the four images in a grid 
 
 account.html
+- Shows the users info and update it anytime.
 account.css
+- Adjust the size of input and label.
 
 drugdosage.html
 - Allows users to upload new prescription medicines. The medicines are stored under the user's account, which are stored im a database. 
@@ -35,6 +37,7 @@ prescription.css
 - Contains styling for both drugdosage.html and prescription.html. Helps create the form structures, button layouts, and display of user prescriptions. 
 
 heartrate.html
+- Keeps track of the heart rate and the graph shows the data for different time.
 heartrate.css
 
 heartrate2.html
