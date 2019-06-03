@@ -40,11 +40,15 @@ other risks when taking the drug  -->
             database.ref(key).once('value', (snapshot) => {
                 const data = snapshot.val();
                 console.log(data);
+                
+                // check if data is null
                 if (!data){
                     $('#IndicDiv').html('<span style="font-size: 60px">Please enter a valid name.</span>');
                     $('#PregDiv').html('');
                     $('#WarnDiv').html('');
                 }
+                
+                // alert message for not finding any usage or warning. else show the information
                 if (!data.indications_and_usage){
                     $('#IndicDiv').html('Cannot find indication data.');
                 } else{
