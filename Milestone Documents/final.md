@@ -4,7 +4,7 @@ https://docs.google.com/presentation/d/1P5VnUzFmHzR8pWtYzaMfLaW0m5xcHedyxUkTcv_f
 Demo:
 https://youtu.be/dLqjNnaIEAY
 
-Ethan Cai / 
+Yi Cai / 
 Austin Nim / 
 Wan Hin Choi / 
 Do Hyun Kim
