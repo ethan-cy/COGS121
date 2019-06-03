@@ -46,8 +46,12 @@
         console.log("today = " + today);
         console.log("exp date = " + drug.expDate);
         if(drug.expDate < today){
+          $('#expirationDate').hide();
           $('#expiredPrescription').html('Your current prescription is expired please update!');
-                    $('#updatePill').show();
+            $('#updatePill').show();
+        } else {
+          $('#expiredPrescription').hide();
+          $('#expirationDate').html("Meds expire on " + drug.expDate);
         }
         console.log(drug);
         $('#drugName').html('Name: ' + drug.drugName);
@@ -74,19 +78,21 @@
       $('#updateDrugInfo').show();
       $('#uploadInfoButton').show()
       $('#updatePill').hide();
-      var url = currUser + '/prescriptions/' + $('#userPrescriptions').value();
+      var url = currUser + '/prescriptions/' + $('#userPrescriptions').val();
       database.ref(url).once('value', (snapshot) => {
         var info = snapshot.val();
-        $('#drugNameBox').val() = info.drugName;
-        $('#doseRecBox').val() = info.recDoe;
-        $('#doseHrBox').val() = info.consumptionTime;
-        $('#doseMinBox').val() = info.consumptionTime;
-        $('#doseNoteBox').val() = info.notes;
-        $('#doseEndBox').val() = info.expDate;
-      })
+        $('#drugNameBox').val( $('#userPrescriptions').val() );
+        $('#doseRecBox').val(info.recDose);
+        $('#doseHrBox').val(info.consumptionTime);
+        $('#doseMinBox').val(info.consumptionTime);
+        $('#doseNoteBox').val(info.notes);
+        $('#doseEndBox').val(info.expDate);
+      });
     });
 
-    $('uploadInfoButton').click(() => {
+    $('#uploadInfoButton').click(() => {
+      const name =  $('#userPrescriptions').val();
+      console.log("name = " + $('#userPrescriptions').val());
       const dosage = $('#doseRecBox').val();
       const doseHrBox = $('#doseHrBox').val();
       const doseMinBox = $('#doseMinBox').val();
@@ -101,16 +107,40 @@
       }
       else
       {
-  var url = currUser + '/prescriptions/' + $('#userPrescriptions').value();
+  var url = currUser + '/prescriptions/' + name;
         console.log(url);
         database.ref(url).set(
         {
+          drugName: name,
           recDose: dosage,
           consumptionTime: time,
           notes: note,
           expDate: end
         });
       }
+      $('#uploadInfoButton').hide();
+      $('#updateDrugInfo').hide();
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = yyyy + '-' + mm + '-' + dd;
+      if(end < today){
+        console.log("expired still ")
+        $('#expirationDate').hide();
+        $('#expiredPrescription').show();
+        $('#expiredPrescription').html('Your current prescription is expired please update!');
+          $('#updatePill').show();
+      } else {
+        $('#expiredPrescription').hide();
+                $('#expirationDate').show();
+        $('#expirationDate').html("Meds expire on " + end);
+      }
+
+      $('#drugName').html('Name: ' + name);
+      $('#drugRec').html('Recommended Dosage: ' + dosage);
+      $('#drugTime').html("Consume Every: " + time);
+      $('#drugNote').html("Special Note: " + note);
     });
   });
 
@@ -128,6 +158,8 @@
     <button id="getInfoButton">Find Information</button>
 
   <div id="expiredPrescription">
+  </div>
+  <div id="expirationDate">
   </div>
 
   <div id="msgBox">

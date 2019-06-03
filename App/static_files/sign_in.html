@@ -42,17 +42,17 @@
 
 
           console.log("here");
-          database.ref().once('value', (snapshot) => {
+          database.ref(userName + "/accountInfo").once('value', (snapshot) => {
             console.log("here2");
             const list = snapshot.val();
-            for (var key in list){
-              console.log(userName + " " + key);
-              if (userName == key && passWord == list[key].accountInfo.password){
-                console.log("true");
-              }
-              else{
-                alert("Login info does not exist.")
-              }
+            if (list == null){
+              alert("Login info does not exist.");
+            }
+            if (passWord == list[password]){
+              console.log("true");
+            }
+            else{
+              alert("Incorrect Password.");
             }
           });
       });
@@ -81,7 +81,7 @@
           <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
           <!-- <input type="submit" class="fadeIn fourth" value="Log In" id="loginBtn"> -->
           <button id="loginBtn" class="input2">Log In</button>
-          <a href = "SignUp.html"><input type="button" id ="btnSignUp" value = "Sign up"></input>
+          <a href = "signUp.html"><input type="button" id ="btnSignUp" value = "Sign up"></input>
         </form>
 
 
