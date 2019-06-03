@@ -35,10 +35,13 @@ an x axis or time or date, and a y-axis of bpm.-->
     <script type="text/javascript">
     $(document).ready(() =>{
       const database = firebase.database();
+        // user is the key for firebase
       const name = window.localStorage.getItem('uName');
         //////////////////////////Graph//////////////////////////
         window.onload = function () {
           database.ref(name + '/heartRate').once('value', (snapshot) => {
+              
+              // show the bpm and put it on the chart
             const data = snapshot.val();
             var chart = new CanvasJS.Chart("chartContainer");
 
@@ -57,6 +60,7 @@ an x axis or time or date, and a y-axis of bpm.-->
             series1.dataPoints = [
             ];
 
+              // split the data from the list
             for (var key in data) {
               console.log(data[key]);
               const res = key.split("T");
@@ -74,7 +78,7 @@ an x axis or time or date, and a y-axis of bpm.-->
 
 
 
-
+        // reset all the data
       $('#resetButton').click(() => {
         database.ref('billwill/heartRate').remove();
         location.reload();
