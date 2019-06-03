@@ -189,8 +189,15 @@ a {
   text-align: center;
   -webkit-border-radius: 0 0 10px 10px;
   border-radius: 0 0 10px 10px;
+  font-size: 40px;
+}
+#btnSignUp {
+  font-size: 50px;
 }
 
+#signup-Form {
+  margin-top: 50px;
+}
 
 
 /* TABS */
