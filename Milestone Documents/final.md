@@ -22,7 +22,20 @@ Main page hosts four links: link to prescription, drug information, heart rate, 
 main.css
 arranges the four images in a grid 
 
+account.html
+account.css
 
+prescription.html
+preciption.css
+
+heartrate.html
+heartrate.css
+
+heartrate2.html
+heartrate2.css
+
+information.html
+information.css
 
 
 
