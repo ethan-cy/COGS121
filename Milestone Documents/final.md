@@ -3,7 +3,7 @@ https://docs.google.com/presentation/d/1P5VnUzFmHzR8pWtYzaMfLaW0m5xcHedyxUkTcv_f
 
 Ethan Cai
 Austin Nim
-Marco Choi
+Wan He Choi
 Do Hyun Kim
 
 Ethan Cai -
