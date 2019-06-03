@@ -32,6 +32,21 @@
     <script type="text/javascript">
     $(document).ready(() =>{
       const database = firebase.database();
+      $('#reset123Button').click(() => {
+      console.log('Resetting the database');
+      //database.ref('austinnim/').remove(); // delete the entire collection
+      //database.ref('billwill/prescriptions/').remove();
+      // writes data to the database:
+      database.ref().remove();
+      database.ref('billwill/accountInfo').set({name: "Bill Larson", password: 'password', username: 'billwill', age: '55', bloodType: 'AB+', height: "190 cm",  weight: "155 kg"});
+      database.ref('billwill/heartRate/2019-05-1T12:10').set({day: "Friday", heartRate: "77"});
+      database.ref('billwill/heartRate/2019-05-1T15:10').set({day: "Friday", heartRate: "88"});
+      database.ref('billwill/heartRate/2019-05-1T18:20').set({day: "Friday", heartRate: "89"});
+      database.ref('billwill/prescriptions/mucinexdm').set({drugName: 'mucinexdm', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
+      database.ref('billwill/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!"});
+    });
+
+
       $('#setButton').click(() => {
         const date_time = $('#dateTime').val();
         const dayVal = $('#DayBox').val();
@@ -54,9 +69,9 @@
         }
 
         else{
-          database.ref('users/' + date_time).set({
-          Day: dayVal,
-          HeartRate: rateVal
+          database.ref('billwill/heartRate/' + date_time).set({
+          day: dayVal,
+          heartRate: rateVal
           });
           window.location.pathname = '/heartrate2.html';
         }
@@ -95,6 +110,8 @@
       <button id="setButton" class="input2">Enter Heart-Rate Information </button>
       <br3>
       <button id="goButton" class="input2" onclick="location.href='./heartrate2.html'">See Heart-Rate Information </button>
+      <br3>
+      <button id="reset123Button" class="input2">Reset123 </button>
     </div>
     <div>
     </div>
