@@ -27,8 +27,10 @@ account.css
 
 drugdosage.html
 - Allows users to upload new prescription medicines. The medicines are stored under the user's account, which are stored im a database. 
+
 prescription.html
 - Uses the database to render user's list of prescriptions that they can view. In addition, the page will display whether the prescription has expired. 
+
 prescription.css
 - Contains styling for both drugdosage.html and prescription.html. Helps create the form structures, button layouts, and display of user prescriptions. 
 
