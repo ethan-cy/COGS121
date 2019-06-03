@@ -1,4 +1,8 @@
 <html>
+<!-- Acts as the home page when clicking on the prescription button.
+The page will display two options for the users, either to view their prescription history
+or to add new prescriptions. In addition, if pills are expired then the user
+will be notified on the page and be allowed to update the information if they want. -->
 <head>
   <title>MedicineApp - pill tracker</title>
   <link rel="stylesheet" type="text/css" href="prescription.css">
@@ -36,6 +40,7 @@
   $(document).ready(() =>{
     const database = firebase.database();
     const name = window.localStorage.getItem('uName');
+    // sets up the structure of the initial database
     $('#resetButton').click(() => {
       console.log('Resetting the database');
       //database.ref('billwill/').remove(); // delete the entire collection
@@ -49,12 +54,14 @@
       database.ref('billwill/prescriptions/aspirin').set({drugName: 'aspirin', recDose: '20 pills', consumptionTime: "1 Hr", notes: "This works!", expDate: "2017-01-03"});
     });
 
+    // displays the drug history of the users
     $('#drugHistoryBtn').click(() => {
         $('#drugHistoryBtn').hide();
         $('#newPrescripBtn').hide();
         window.location.href = 'prescription.html';
     });
-    var currUser = name; //FILL IN
+    var currUser = name;
+    // lets users enter new data into the database
     $('#newPrescripBtn').click(() => {
         $('#newPrescripBtn').hide();
         $('#drugHistoryBtn').hide();
@@ -62,6 +69,7 @@
         $('#uploadInfoButton').show();
     });
 
+    // upload button that uploads prescription information
     $('#uploadInfoButton').click(() => {
       const name = $('#drugNameBox').val().toLowerCase();
       const dosage = $('#doseRecBox').val();

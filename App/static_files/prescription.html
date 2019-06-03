@@ -1,4 +1,8 @@
 <html>
+<!-- This page is used to update and show old prescriptions. The user can update expired
+prescriptions and have that infomation saved. This information is then stored under the user's account.
+The user can access this information by clicking on "Medicine History" button and
+selecting the appropriate label. -->
 <head>
   <title>MedicineApp</title>
 
@@ -31,6 +35,7 @@
     const database = firebase.database();
     const name = window.localStorage.getItem('uName');
     var currUser = name; //FILL  IN
+    // go through the database and receive info on the selected med
     $('#getInfoButton').click(() => {
       console.log("input value = " + $('#userPrescriptions').val());
       if($('#userPrescriptions').val() == ""){
@@ -42,6 +47,7 @@
         if(drug == null){
             $('#msgBox').html('Please enter a valid name.');
         }
+        // get today's date to compare agains the expiration date
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -65,7 +71,7 @@
 
       });
     });
-    //go through user prescription
+    // go through the user's prescriptions and add each one to the select tag
     database.ref(currUser).once('value', (snapshot) => {
       console.log("got user object");
       var listOfPrescriptions = snapshot.val().prescriptions;
@@ -78,22 +84,23 @@
       }
     });
 
+    // update the information
     $('#updatePill').click(() => {
       $('#updateDrugInfo').show();
       $('#uploadInfoButton').show()
       $('#updatePill').hide();
       var url = currUser + '/prescriptions/' + $('#userPrescriptions').val();
+      // fill in the fields of the update form with the user's current info
       database.ref(url).once('value', (snapshot) => {
         var info = snapshot.val();
         $('#drugNameBox').val( $('#userPrescriptions').val() );
         $('#doseRecBox').val(info.recDose);
-        $('#doseHrBox').val(info.consumptionTime);
-        $('#doseMinBox').val(info.consumptionTime);
         $('#doseNoteBox').val(info.notes);
         $('#doseEndBox').val(info.expDate);
       });
     });
 
+    // enters the info back into the database
     $('#uploadInfoButton').click(() => {
       const name =  $('#userPrescriptions').val();
       console.log("name = " + $('#userPrescriptions').val());
@@ -152,7 +159,7 @@
 
 </head>
 <body>
-  <h1>Prescription Renewal</h1>
+  <h1>Pill Tracker </h1>
 
 
     <select id="userPrescriptions">
@@ -185,10 +192,10 @@
       <label>When: </label>
       <br>
       <label>&nbsp&nbsp&nbsp&nbsp Hours: </label>
-      <input id="doseHrBox" type="number" />
+      <input id="doseHrBox" type="number" placeholder="2"/>
           <br>
       <label>&nbsp&nbsp&nbsp&nbsp Minutes: </label>
-      <input id="doseMinBox" type="text"/>
+      <input id="doseMinBox" type="text" placeholder="30"/>
 
           <br>
       <label>Special note: </label>
